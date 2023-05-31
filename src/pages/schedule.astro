@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import format from 'date-fns/format'
-import parse from 'date-fns/parse'
+import { format, parse } from "date-fns";
 
 import { FrappeApp } from "frappe-js-sdk";
 
@@ -33,7 +32,7 @@ streams.forEach((stream) => {
     parse(stream.stream_date, "yyyy-MM-dd", new Date()),
     "do MMM, yyyy"
   );
-  
+
   stream.stream_time = format(
     parse(stream.stream_time, "HH:mm:ss", new Date()),
     "hh:mma"
