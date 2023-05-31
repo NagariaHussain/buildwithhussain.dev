@@ -11,8 +11,6 @@ const frappe = new FrappeApp("https://buildwithhussain-cms.frappe.cloud", {
   type: "token",
 });
 
-console.debug("api key", import.meta.env.API_KEY);
-
 function getToken() {
   return `${import.meta.env.API_KEY}:${import.meta.env.API_SECRET}`;
 }
