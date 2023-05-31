@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 import { FrappeApp } from "frappe-js-sdk";
 
-const frappe = new FrappeApp("https://buildwithhussain-cms.frappe.cloud", {
+const frappe = new FrappeApp("https://cms.buildwithhussain.dev", {
   useToken: true,
   // Pass a custom function that returns the token as a string - this could be fetched from LocalStorage or auth providers like Firebase, Auth0 etc.
   token: () => getToken(),
