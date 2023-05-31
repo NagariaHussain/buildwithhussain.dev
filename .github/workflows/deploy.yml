@@ -27,8 +27,8 @@ jobs:
             # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
             # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
         env:
-          API_KEY: ${{ secrets.API_KEY }}
-          API_SECRET: ${{ secrets.API_SECRET }}
+          API_KEY: ${{ secrets.FRAPPE_API_KEY }}
+          API_SECRET: ${{ secrets.FRAPPE_API_SECRET }}
 
   deploy:
     needs: build
