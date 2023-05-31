@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import format from 'date-fns/format'
+import parse from 'date-fns/parse'
 
 import { FrappeApp } from "frappe-js-sdk";
 
@@ -19,6 +21,23 @@ const db = frappe.db();
 
 const streams = await db.getDocList("BWH Stream", {
   fields: ["title", "stream_date", "stream_time", "stream_link"],
+  orderBy: {
+    field: "stream_date",
+    order: "asc",
+  },
+});
+
+streams.forEach((stream) => {
+  // stream.stream_date, format to form 24th May, 2023 without considering timezone
+  stream.stream_date = format(
+    parse(stream.stream_date, "yyyy-MM-dd", new Date()),
+    "do MMM, yyyy"
+  );
+  
+  stream.stream_time = format(
+    parse(stream.stream_time, "HH:mm:ss", new Date()),
+    "hh:mma"
+  );
 });
 ---
 
@@ -46,13 +65,13 @@ const streams = await db.getDocList("BWH Stream", {
           <li class="font-bold text-lg space-y-1 py-10">
             <a target="_blank" href={stream.stream_link}>
               <div>
-                <h3>{stream.title}</h3>
+                <h3 class="text-gray-900">{stream.title}</h3>
               </div>
               <div>
                 <time class="text-gray-500">
                   <span>{stream.stream_date}</span>
-                  <span>|</span>
-                  <span>{stream.stream_time}</span>
+                  <span class="font-thin">|</span>
+                  <span>{stream.stream_time} IST</span>
                 </time>
               </div>
             </a>
