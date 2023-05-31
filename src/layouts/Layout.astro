@@ -4,6 +4,25 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+import { FrappeApp } from 'frappe-js-sdk';
+
+const frappe = new FrappeApp("https://buildwithhussain-cms.frappe.cloud", {
+    useToken: true,
+    // Pass a custom function that returns the token as a string - this could be fetched from LocalStorage or auth providers like Firebase, Auth0 etc.
+    token: () => getToken(),
+    // This can be "Bearer" or "token"
+    type: "token"
+})
+
+function getToken() {
+	return `${import.meta.env.API_KEY}:${import.meta.env.API_SECRET}`
+}
+
+const auth = frappe.auth()
+auth
+  .getLoggedInUser()
+  .then((user) => console.log(`User ${user} is logged in.`))
+  .catch((error) => console.error(error));
 ---
 
 <!DOCTYPE html>

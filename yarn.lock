@@ -1341,6 +1341,11 @@ fraction.js@^4.2.0:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
   integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
+frappe-js-sdk@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/frappe-js-sdk/-/frappe-js-sdk-1.2.4.tgz#3037710f9190b2ee584d7a145005e1d2f1c474ad"
+  integrity sha512-MNEHBM+cPIupSBWfuaaomFcqCwx5z44MEB+1krb29DDnfUwIBslrDF0rxBqpKs9RO3+nbl/lJI5DxwrZ8yENuA==
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
