@@ -1,0 +1,81 @@
+---
+---
+
+<form id="registeration-form" class="sm:w-full">
+  <h3 class="font-semibold text-base mb-4">New Episodes Every Wednesday.</h3>
+
+  <!-- Input Elements -->
+  <div
+    class="flex flex-col space-y-4 sm:grid sm:grid-cols-2 sm:justify-center sm:items-center sm:space-y-0 sm:gap-12"
+  >
+    <input
+      class="focus:ring-2 focus:outline-none focus:ring-gray-500 text-gray-500 font-semibold text-lg py-6 pl-4 rounded-lg border-[3px] border-gray-400"
+      required
+      name="first_name"
+      type="text"
+      placeholder="First Name"
+    />
+    <input
+      class="focus:ring-2 focus:outline-none focus:ring-gray-500 text-gray-500 font-semibold text-lg py-6 pl-4 rounded-lg border-[3px] border-gray-400"
+      required
+      name="email"
+      type="email"
+      placeholder="Your Email"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="group flex flex-row items-center justify-center space-x-8 focus:outline-none focus:ring-4 focus:ring-green-800 mt-10 bg-green-900 text-green-100 px-[70px] py-4 sm:px-[55px] sm:py-5 rounded-full font-bold text-xl sm:text-2xl transition-colors w-full sm:w-fit"
+    type="submit"
+  >
+    <span>Stay Notified</span>
+    <i
+      class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-100"
+    ></i>
+  </button>
+</form>
+
+<script>
+  function handleOnRegister(e) {
+    // get form data
+    const formData = new FormData(e.target);
+
+    // extract form data and store in data key of form data
+    const data = Object.fromEntries(formData.entries());
+
+    formData.set("data", JSON.stringify(data));
+    formData.set("web_form", "test");
+    formData.set("cmd", "frappe.website.doctype.web_form.web_form.accept");
+    formData.set("for_payment", "false");
+
+    // remove email and first_name from form data
+    formData.delete("email");
+    formData.delete("first_name");
+
+    // make a post request to cms.buildwithhussain.dev with the form data and cors enabled
+    fetch("https://cms.buildwithhussain.dev/", {
+      method: "POST",
+      body: formData,
+      mode: "cors",
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          // clear the form
+          e.target.reset();
+          alert("You have been registered successfully.");
+        } else {
+          alert("Something went wrong. Please try again later.");
+        }
+      })
+      .catch((err) => {
+        alert("Something went wrong. Please try again later.");
+        console.log(err);
+      });
+    e.preventDefault();
+  }
+
+  // get element and attach event listener
+  const form = document.getElementById("registeration-form");
+  form.addEventListener("submit", handleOnRegister);
+</script>

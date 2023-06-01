@@ -1,0 +1,85 @@
+---
+import { format, parse } from "date-fns";
+import { FrappeApp } from "frappe-js-sdk";
+
+const frappe = new FrappeApp("https://cms.buildwithhussain.dev", {
+  useToken: true,
+  // Pass a custom function that returns the token as a string - this could be fetched from LocalStorage or auth providers like Firebase, Auth0 etc.
+  token: () => getToken(),
+  // This can be "Bearer" or "token"
+  type: "token",
+});
+
+function getToken() {
+  return `${import.meta.env.API_KEY}:${import.meta.env.API_SECRET}`;
+}
+
+const db = frappe.db();
+
+let streams = await db.getDocList("BWH Stream", {
+  fields: ["title", "stream_date", "stream_time", "stream_link"],
+  orderBy: {
+    field: "stream_date",
+    order: "asc",
+  },
+  limit: 1000,
+});
+
+streams.forEach((stream) => {
+  // stream.stream_date, format to form 24th May, 2023 without considering timezone
+  stream.stream_date = format(
+    parse(stream.stream_date, "yyyy-MM-dd", new Date()),
+    "do MMM, yyyy"
+  );
+
+  stream.stream_time = format(
+    parse(stream.stream_time, "HH:mm:ss", new Date()),
+    "hh:mma"
+  );
+});
+
+// remove streams that are in the past
+streams = streams.filter((stream) => {
+  const streamDate = parse(stream.stream_date, "do MMM, yyyy", new Date());
+  const streamTime = parse(stream.stream_time, "hh:mma", new Date());
+
+  const streamDateTime = new Date(
+    streamDate.getFullYear(),
+    streamDate.getMonth(),
+    streamDate.getDate(),
+    streamTime.getHours(),
+    streamTime.getMinutes(),
+    streamTime.getSeconds()
+  );
+
+  stream.stream_date_time = streamDateTime;
+
+  return streamDateTime > new Date();
+});
+---
+
+<ul class="divide-y-2 divide-green-900/10 md:divide-y-0">
+    {
+      streams.map((stream) => (
+        <li class="font-bold text-lg space-y-1 py-10 md:py-4 md:space-y-0">
+          <a
+            class="group md:flex md:items-center md:justify-between"
+            target="_blank"
+            href={stream.stream_link}
+          >
+            <div class="flex flex-row items-center justify-between">
+              <h3 class="text-gray-900">{stream.title}</h3>
+              <i class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900 md:ml-5" />
+            </div>
+            <div>
+              <time class="text-gray-500" datetime={stream.stream_date_time}>
+                <span>{stream.stream_date}</span>
+                <span class="font-thin">|</span>
+                <span>{stream.stream_time} IST</span>
+              </time>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
