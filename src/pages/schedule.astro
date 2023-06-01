@@ -18,12 +18,13 @@ function getToken() {
 
 const db = frappe.db();
 
-const streams = await db.getDocList("BWH Stream", {
+let streams = await db.getDocList("BWH Stream", {
   fields: ["title", "stream_date", "stream_time", "stream_link"],
   orderBy: {
     field: "stream_date",
     order: "asc",
   },
+  limit: 400
 });
 
 streams.forEach((stream) => {
@@ -37,6 +38,23 @@ streams.forEach((stream) => {
     parse(stream.stream_time, "HH:mm:ss", new Date()),
     "hh:mma"
   );
+});
+
+// remove streams that are in the past
+streams = streams.filter((stream) => {
+  const streamDate = parse(stream.stream_date, "do MMM, yyyy", new Date());
+  const streamTime = parse(stream.stream_time, "hh:mma", new Date());
+
+  const streamDateTime = new Date(
+    streamDate.getFullYear(),
+    streamDate.getMonth(),
+    streamDate.getDate(),
+    streamTime.getHours(),
+    streamTime.getMinutes(),
+    streamTime.getSeconds()
+  );
+
+  return streamDateTime > new Date();
 });
 ---
 
