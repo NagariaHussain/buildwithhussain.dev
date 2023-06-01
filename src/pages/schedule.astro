@@ -24,7 +24,7 @@ let streams = await db.getDocList("BWH Stream", {
     field: "stream_date",
     order: "asc",
   },
-  limit: 400
+  limit: 1000,
 });
 
 streams.forEach((stream) => {
@@ -74,7 +74,9 @@ streams = streams.filter((stream) => {
   <!-- Registration Section -->
   <section class="px-9 my-36">
     <form id="registeration-form">
-      <h3 class="font-semibold text-base mb-4">New Episodes Every Wednesday.</h3>
+      <h3 class="font-semibold text-base mb-4">
+        New Episodes Every Wednesday.
+      </h3>
       <div class="flex flex-col space-y-4">
         <input
           class="focus:ring-2 focus:outline-none focus:ring-gray-500 text-gray-500 font-semibold text-lg py-6 pl-4 rounded-lg border-[3px] border-gray-400"
@@ -94,12 +96,14 @@ streams = streams.filter((stream) => {
 
       <button
         type="submit"
-        class="flex flex-row items-center justify-center space-x-8 focus:outline-none focus:ring-4 focus:ring-green-800 mt-10 bg-green-900 text-green-100 px-[70px] py-4 rounded-full font-bold text-xl hover:bg-green-700 transition-colors"
-        type="submit">
-        <span>Stay Notified</span>
-        <i class="ph-bold ph-arrow-right"></i>
-        </button
+        class="group flex flex-row items-center justify-center space-x-8 focus:outline-none focus:ring-4 focus:ring-green-800 mt-10 bg-green-900 text-green-100 px-[70px] py-4 rounded-full font-bold text-xl hover:bg-green-700 transition-colors"
+        type="submit"
       >
+        <span>Stay Notified</span>
+        <i
+          class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform"
+        ></i>
+      </button>
     </form>
   </section>
 
