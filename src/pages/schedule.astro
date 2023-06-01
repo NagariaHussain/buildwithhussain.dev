@@ -120,18 +120,20 @@ streams = streams.filter((stream) => {
   </section>
 
   <main class="px-9 sm:px-24 my-36">
-    <h2 class="uppercase text-green-500/70 font-black text-2xl mb-3">
+    <h2
+      class="uppercase text-green-500/70 font-black text-2xl mb-3 sm:mb-24 sm:font-black sm:text-5xl"
+    >
       Schedule
     </h2>
 
-    <ul class="divide-y-2 divide-green-900/10">
+    <ul class="divide-y-2 divide-green-900/10 sm:divide-y-0">
       {
         streams.map((stream) => (
-          <li class="font-bold text-lg space-y-1 py-10">
-            <a class="group" target="_blank" href={stream.stream_link}>
+          <li class="font-bold text-lg space-y-1 py-10 sm:py-4 sm:space-y-0">
+            <a class="group sm:flex sm:items-center sm:justify-between" target="_blank" href={stream.stream_link}>
               <div class="flex flex-row items-center justify-between">
                 <h3 class="text-gray-900">{stream.title}</h3>
-                <i class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900" />
+                <i class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900 sm:ml-5" />
               </div>
               <div>
                 <time class="text-gray-500" datetime={stream.stream_date_time}>
