@@ -54,6 +54,8 @@ streams = streams.filter((stream) => {
     streamTime.getSeconds()
   );
 
+  stream.stream_date_time = streamDateTime;
+
   return streamDateTime > new Date();
 });
 ---
@@ -96,12 +98,12 @@ streams = streams.filter((stream) => {
 
       <button
         type="submit"
-        class="group flex flex-row items-center justify-center space-x-8 focus:outline-none focus:ring-4 focus:ring-green-800 mt-10 bg-green-900 text-green-100 px-[70px] py-4 rounded-full font-bold text-xl hover:bg-green-700 transition-colors"
+        class="group flex flex-row items-center justify-center space-x-8 focus:outline-none focus:ring-4 focus:ring-green-800 mt-10 bg-green-900 text-green-100 px-[70px] py-4 rounded-full font-bold text-xl transition-colors w-full"
         type="submit"
       >
         <span>Stay Notified</span>
         <i
-          class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform"
+          class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-100"
         ></i>
       </button>
     </form>
@@ -116,12 +118,13 @@ streams = streams.filter((stream) => {
       {
         streams.map((stream) => (
           <li class="font-bold text-lg space-y-1 py-10">
-            <a target="_blank" href={stream.stream_link}>
-              <div>
+            <a class="group" target="_blank" href={stream.stream_link}>
+              <div class="flex flex-row items-center justify-between">
                 <h3 class="text-gray-900">{stream.title}</h3>
+                <i class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900" />
               </div>
               <div>
-                <time class="text-gray-500">
+                <time class="text-gray-500" datetime={stream.stream_date_time}>
                   <span>{stream.stream_date}</span>
                   <span class="font-thin">|</span>
                   <span>{stream.stream_time} IST</span>
