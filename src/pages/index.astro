@@ -1,9 +1,15 @@
 ---
+import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Very Welcome to Astro.">
-	<main>
-		<h1 class="text-xl font-semibold text-green-500">Build With Hussain</h1>
-	</main>
+	<Hero />
+
+	<div class="flex items-center justify-center my-10">
+		<a href="/schedule" class="text-center text-green-900 font-semibold text-xl underline underline-offset-1 hover:underline-offset-2 cursor-pointer">Check Schedule</a>
+	</div>
+
+	<Footer />
 </Layout>
