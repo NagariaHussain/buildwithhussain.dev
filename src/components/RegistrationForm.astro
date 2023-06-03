@@ -14,6 +14,7 @@
       name="first_name"
       type="text"
       placeholder="First Name"
+      autocomplete="given-name"
     />
     <input
       class="focus:ring-2 focus:outline-none focus:ring-gray-500 text-gray-500 font-semibold text-lg py-6 pl-4 rounded-lg border-[3px] border-gray-400"
@@ -21,6 +22,7 @@
       name="email"
       type="email"
       placeholder="Your Email"
+      autocomplete="email"
     />
   </div>
 
@@ -31,7 +33,7 @@
   >
     <span>Stay Notified</span>
     <i
-      class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-100"
+      class="ph-bold ph-arrow-right group-hover:translate-x-3 transition-transform text-green-100"
     ></i>
   </button>
 </form>
@@ -63,7 +65,24 @@
         if (res.status === 200) {
           // clear the form
           e.target.reset();
-          alert("You have been registered successfully.");
+
+          // store the current html content of the form section
+          const formSectionContent = e.target.parentElement.innerHTML;
+
+          // change the content of the form section to show success message with animation
+          // get the parent of the form
+          const formSection = e.target.parentElement;
+          formSection.innerHTML = `
+            <div class="flex flex-col items-center justify-center space-y-4">
+              <h3 class="font-semibold text-base mb-4">Awesome! You will be in the loop now!</h3>
+              <p class="text-gray-500 text-center font-medium">Thank you for your interest in #BuildWithHussain stuff!</p>
+            </div>
+          `;
+
+          // revert the content of the form section to show the form again after 5 seconds
+          setTimeout(() => {
+            formSection.innerHTML = formSectionContent;
+          }, 5000);
         } else {
           alert("Something went wrong. Please try again later.");
         }
