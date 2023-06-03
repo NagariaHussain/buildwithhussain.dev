@@ -6,6 +6,15 @@ import HussainWithMic from "../../public/hussain-with-mic.png";
 import PageSection from "../layouts/PageSection.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import RegistrationForm from "../components/RegistrationForm.astro";
+import getAllEpisodes from "../utils/episodes";
+import PastEpisodesList from "../components/PastEpisodesList.astro";
+
+const episodes = await getAllEpisodes();
+
+const pastEpisodes = episodes.filter((stream) => {
+	// remove episodes that are scheduled in the future
+	return stream.stream_date_time <= new Date();
+});
 ---
 
 <Layout title="#BuildWithHussain">
@@ -39,6 +48,7 @@ import RegistrationForm from "../components/RegistrationForm.astro";
 
 	<PageSection>
 		<SectionHeading>Episodes</SectionHeading>
+		<PastEpisodesList />
 	</PageSection>
 
 	<PageSection>

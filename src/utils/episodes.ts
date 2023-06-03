@@ -1,7 +1,7 @@
 import { format, parse } from "date-fns";
 import { FrappeApp } from "frappe-js-sdk";
 
-interface Episode {
+export interface Episode {
     title: string;
     stream_date: string;
     stream_time: string;
