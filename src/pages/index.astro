@@ -7,26 +7,7 @@ import SectionHeading from "../components/SectionHeading.astro";
 import RegistrationForm from "../components/RegistrationForm.astro";
 import PastEpisodesList from "../components/PastEpisodesList.astro";
 import AboutMeSection from "../components/AboutMeSection.astro";
-import Link from "../components/Link.astro";
-
-const FRAPPEVERSE_LINKS = {
-	products: [
-		{ title: "Frappe Framework", link: "https://frappeframework.com" },
-		{ title: "ERPNext", link: "https://erpnext.com" },
-		{ title: "Frappe Cloud", link: "https://frappecloud.com" },
-	],
-	["Write Ups"]: [
-		{ title: "MongoDB with Frappe", link: "https://frappe.io/blog/" },
-		{
-			title: "Astro Powered Frappe Portal Pages",
-			link: "https://frappe.io/blog/",
-		},
-		{
-			title: "Build An e-Book Store with Frappe",
-			link: "https://frappe.io/blog/",
-		},
-	],
-};
+import FrappeverseSection from "../components/FrappeverseSection.astro";
 ---
 
 <Layout title="#BuildWithHussain">
@@ -54,32 +35,7 @@ const FRAPPEVERSE_LINKS = {
 		</div>
 	</PageSection>
 
-	<PageSection>
-		<SectionHeading>Frappeverse</SectionHeading>
-
-		<div class="mt-12 space-y-24">
-			<!-- Iterate over FRAPPEVERSE_LINKS and render as above -->
-			{
-				Object.keys(FRAPPEVERSE_LINKS).map((category) => (
-					<div class="space-y-8">
-						<div class="flex items-center space-x-3">
-							<h3 class="uppercase text-green-900 font-bold text-sm">
-								{category}
-							</h3>
-
-							<div class="h-[1px] w-10 bg-green-900" />
-						</div>
-
-						<div class="space-y-4">
-							{FRAPPEVERSE_LINKS[category].map((link) => (
-								<Link link={link.link} title={link.title} />
-							))}
-						</div>
-					</div>
-				))
-			}
-		</div>
-	</PageSection>
+	<FrappeverseSection />
 
 	<Footer />
 </Layout>
