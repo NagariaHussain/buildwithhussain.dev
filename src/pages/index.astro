@@ -2,49 +2,17 @@
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
-import HussainWithMic from "../../public/hussain-with-mic.png";
 import PageSection from "../layouts/PageSection.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import RegistrationForm from "../components/RegistrationForm.astro";
-import getAllEpisodes from "../utils/episodes";
 import PastEpisodesList from "../components/PastEpisodesList.astro";
-
-const episodes = await getAllEpisodes();
-
-const pastEpisodes = episodes.filter((stream) => {
-	// remove episodes that are scheduled in the future
-	return stream.stream_date_time <= new Date();
-});
+import AboutMeSection from "../components/AboutMeSection.astro";
 ---
 
 <Layout title="#BuildWithHussain">
 	<Hero />
 
-	<div class="px-9 md:px-24 mt-32 md:mt-52 md:max-w-7xl md:mx-auto">
-		<div class="space-y-12">
-			<img src={HussainWithMic} class="w-2/3" />
-
-			<div class="space-y-8">
-				<div>
-					<h2 class="text-green-900 font-semibold text-xl">
-						Mohammad Hussain Nagaria
-					</h2>
-					<h3 class="text-green-600 text-base font-semibold">
-						Trainer. Engineer. Designer. Evangelist.
-					</h3>
-				</div>
-
-				<p class="text-green-900 text-lg font-normal">
-					Intro text here, why I started build with Hussain and what
-					is it, in two lines this is the second line. Putting this
-					content until I write the copy for this and the will replace
-					this paragraph. <strong class="font-semibold"
-						>#BuildWithHussain</strong
-					>
-				</p>
-			</div>
-		</div>
-	</div>
+	<AboutMeSection />
 
 	<PageSection>
 		<SectionHeading>Episodes</SectionHeading>
@@ -56,11 +24,14 @@ const pastEpisodes = episodes.filter((stream) => {
 	</PageSection>
 
 	<PageSection>
-		<a
-			href="/schedule"
-			class="text-center text-green-900 font-semibold text-xl underline underline-offset-1 hover:underline-offset-2 cursor-pointer"
-			>Check Schedule</a
-		>
+		<div class="flex justify-center">
+			<a
+				href="/schedule"
+				class="text-center text-green-900 font-semibold text-xl underline underline-offset-2 hover:underline-offset-4 transition-[text-underline-offset] cursor-pointer"
+				>Check Schedule
+				<i class="ph-bold ph-arrow-right text-green-900"></i>
+			</a>
+		</div>
 	</PageSection>
 
 	<Footer />
