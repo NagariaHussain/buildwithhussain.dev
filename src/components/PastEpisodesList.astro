@@ -1,4 +1,5 @@
 ---
+import Link from "./Link.astro";
 import getAllEpisodes from "../utils/episodes";
 
 const episodes = await getAllEpisodes();
@@ -11,19 +12,8 @@ let pastEpisodes = episodes.filter((stream) => {
 <ul class="space-y-8 md:space-y-5 mt-12">
   {
     pastEpisodes.map((stream) => (
-      <li class="font-bold text-lg space-y-1 md:space-y-0">
-        <a
-          class="group md:flex md:items-center md:justify-between"
-          target="_blank"
-          href={stream.stream_link}
-        >
-          <div class="flex flex-row items-center justify-between">
-            <h3 class="text-gray-900 group-visited:text-green-950">
-              {stream.title}
-            </h3>
-            <i class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900 md:ml-5" />
-          </div>
-        </a>
+      <li class="space-y-1 md:space-y-0">
+        <Link link={stream.stream_link} title={stream.title} />
       </li>
     ))
   }

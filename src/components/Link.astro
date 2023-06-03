@@ -1,0 +1,23 @@
+---
+interface Props {
+    title: string;
+    link: string;
+}
+
+const { title, link } = Astro.props;
+---
+
+<a
+    class="group md:flex md:items-center md:justify-between font-bold text-lg"
+    target="_blank"
+    href={link}
+>
+    <div class="flex flex-row items-center justify-between">
+        <h3 class="text-gray-900 group-visited:text-green-950">
+            {title}
+        </h3>
+        <i
+            class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900 md:ml-5"
+        ></i>
+    </div>
+</a>
