@@ -1,15 +1,41 @@
 ---
-import Hero from '../components/Hero.astro';
-import Layout from '../layouts/Layout.astro';
-import Footer from '../components/Footer.astro';
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import HussainWithMic from "../../public/hussain-with-mic.png";
+import PageSection from "../layouts/PageSection.astro";
 ---
 
-<Layout title="Very Welcome to Astro.">
+<Layout title="#BuildWithHussain">
 	<Hero />
 
-	<div class="flex items-center justify-center my-10">
-		<a href="/schedule" class="text-center text-green-900 font-semibold text-xl underline underline-offset-1 hover:underline-offset-2 cursor-pointer">Check Schedule</a>
-	</div>
+
+	<PageSection>
+		<div class="space-y-12">
+			<img src={HussainWithMic} class="w-2/3" />
+
+			<div>
+				<h2 class="text-green-900 font-semibold text-xl">
+					Mohammad Hussain Nagaria
+				</h2>
+				<h3 class="text-green-600 text-base font-semibold">
+					Trainer. Engineer. Designer. Evangelist.
+				</h3>
+			</div>
+
+			<div>
+				<!-- About #BuildWithHussain -->
+			</div>
+		</div>
+	</PageSection>
+
+	<PageSection>
+		<a
+			href="/schedule"
+			class="text-center text-green-900 font-semibold text-xl underline underline-offset-1 hover:underline-offset-2 cursor-pointer"
+			>Check Schedule</a
+		>
+	</PageSection>
 
 	<Footer />
 </Layout>
