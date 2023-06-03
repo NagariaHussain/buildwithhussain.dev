@@ -9,8 +9,10 @@ interface Episode {
     stream_date_time: Date;
 }
 
+const FRAPPE_CMS_URL = "https://cms.buildwithhussain.dev";
+
 export default async function getAllEpisodes(): Promise<Episode[]> {
-    const frappe = new FrappeApp("https://cms.buildwithhussain.dev", {
+    const frappe = new FrappeApp(FRAPPE_CMS_URL, {
         useToken: true,
         // Pass a custom function that returns the token as a string - this could be fetched from LocalStorage or auth providers like Firebase, Auth0 etc.
         token: () => getToken(),
