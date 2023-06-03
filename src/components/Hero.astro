@@ -1,11 +1,13 @@
 ---
-
+import Logo from "../public/logo.png";
 ---
-<section
-    class="bg-white px-8 md:px-24 pb-5 pt-20 md:pt-32 md:flex md:flex-row-reverse md:justify-between md:items-center"
+
+<section class="bg-white w-full">
+  <div
+    class="w-full px-8 md:max-w-7xl md:mx-auto md:px-24 pb-5 pt-20 md:pt-32 md:flex md:flex-row-reverse md:justify-between md:items-center"
   >
     <a href="/">
-      <img src="./logo.png" alt="hero" class="w-28 h-28 mb-20 md:mb-0" />
+      <img src={Logo} alt="hero" class="w-28 h-28 mb-20 md:mb-0" />
     </a>
 
     <div class="space-y-3">
@@ -15,7 +17,8 @@
       <h1
         class="text-green-900 font-semibold text-4xl md:font-medium md:text-5xl md:leading-none"
       >
-        Let's Build. <br class="md:hidden"> Let's Learn.
+        Let's Build. <br class="md:hidden" /> Let's Learn.
       </h1>
     </div>
-  </section>
+  </div>
+</section>

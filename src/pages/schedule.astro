@@ -4,16 +4,17 @@ import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import RegistrationForm from "../components/RegistrationForm.astro";
 import UpcomingEpisodesList from "../components/UpcomingEpisodesList.astro";
+import PageSection from "../layouts/PageSection.astro";
 ---
 
 <Layout title="Schedule">
   <Hero />
 
-  <section class="px-9 md:px-24 my-36">
+  <PageSection>
     <RegistrationForm />
-  </section>
+  </PageSection>
 
-  <main class="px-9 md:px-24 my-36">
+  <PageSection>
     <h2
       class="uppercase text-green-500/70 font-black text-2xl mb-3 md:mb-24 md:font-black md:text-5xl"
     >
@@ -21,7 +22,7 @@ import UpcomingEpisodesList from "../components/UpcomingEpisodesList.astro";
     </h2>
 
     <UpcomingEpisodesList />
-  </main>
+  </PageSection>
 
   <Footer />
 </Layout>
