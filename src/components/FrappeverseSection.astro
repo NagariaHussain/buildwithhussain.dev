@@ -4,63 +4,67 @@ import PageSection from "../layouts/PageSection.astro";
 import SectionHeading from "./SectionHeading.astro";
 
 const FRAPPEVERSE_LINKS = {
-    products: [
-        { title: "Frappe Framework", link: "https://frappeframework.com" },
-        { title: "ERPNext", link: "https://erpnext.com" },
-        { title: "Frappe Cloud", link: "https://frappecloud.com" },
-    ],
-    goodies: [
-        {
-            title: "Bench CLI Cheatsheet",
-            link: "https://hussain.click/bench-cheatsheet",
-        },
-    ],
-    ["Write Ups"]: [
-        {
-            title: "MongoDB Powered DocTypes",
-            link: "https://frappe.io/blog/engineering/mongodb-powered-doctypes",
-        },
-        {
-            title: "Astro Powered Portal Pages in Frappe Apps",
-            link: "https://frappe.io/blog/engineering/astro-powered-web-portal-in-frappe-apps",
-        },
-        {
-            title: "Build An e-Book Store on Frappe",
-            link: "https://frappe.io/blog/engineering/building-an-online-ebook-store-with-frappe-bulma-razorpay-part-I",
-        },
-        {
-            title: "Connect Frappe Backend to your JS Apps!",
-            link: "https://frappe.io/blog/engineering/frappe-in-nodejs-apps-serverless-functions",
-        },
-    ],
+  products: [
+    { title: "Frappe Framework", link: "https://frappeframework.com" },
+    { title: "ERPNext", link: "https://erpnext.com" },
+    { title: "Frappe Cloud", link: "https://frappecloud.com" },
+  ],
+  goodies: [
+    {
+      title: "The Missing Frappe Manual",
+      link: "https://tmfm.buildwithhussain.dev",
+    },
+    {
+      title: "Bench CLI Cheatsheet",
+      link: "https://hussain.click/bench-cheatsheet",
+    },
+  ],
+  ["Write Ups"]: [
+    {
+      title: "MongoDB Powered DocTypes",
+      link: "https://frappe.io/blog/engineering/mongodb-powered-doctypes",
+    },
+    {
+      title: "Astro Powered Portal Pages in Frappe Apps",
+      link: "https://frappe.io/blog/engineering/astro-powered-web-portal-in-frappe-apps",
+    },
+    {
+      title: "Build An e-Book Store on Frappe",
+      link: "https://frappe.io/blog/engineering/building-an-online-ebook-store-with-frappe-bulma-razorpay-part-I",
+    },
+    {
+      title: "Connect Frappe Backend to your JS Apps!",
+      link: "https://frappe.io/blog/engineering/frappe-in-nodejs-apps-serverless-functions",
+    },
+  ],
 };
 ---
 
 <PageSection>
-    <SectionHeading>Frappeverse</SectionHeading>
+  <SectionHeading>Frappeverse</SectionHeading>
 
-    <div
-        class="mt-12 space-y-24 md:grid md:grid-cols-2 xl:grid-cols-3 md:items-start md:justify-between md:space-y-0 md:gap-y-14 md:gap-x-14"
-    >
-        <!-- Iterate over FRAPPEVERSE_LINKS and render as above -->
-        {
-            Object.keys(FRAPPEVERSE_LINKS).map((category) => (
-                <div class="space-y-8 col-span-1">
-                    <div class="flex items-center space-x-3">
-                        <h3 class="uppercase text-green-900 font-bold text-sm">
-                            {category}
-                        </h3>
+  <div
+    class="mt-12 space-y-24 md:grid md:grid-cols-2 xl:grid-cols-3 md:items-start md:justify-between md:space-y-0 md:gap-y-14 md:gap-x-14"
+  >
+    <!-- Iterate over FRAPPEVERSE_LINKS and render as above -->
+    {
+      Object.keys(FRAPPEVERSE_LINKS).map((category) => (
+        <div class="space-y-8 col-span-1">
+          <div class="flex items-center space-x-3">
+            <h3 class="uppercase text-green-900 font-bold text-sm">
+              {category}
+            </h3>
 
-                        <div class="h-[1px] w-10 bg-green-900" />
-                    </div>
+            <div class="h-[1px] w-10 bg-green-900" />
+          </div>
 
-                    <div class="space-y-4">
-                        {FRAPPEVERSE_LINKS[category].map((link) => (
-                            <Link link={link.link} title={link.title} />
-                        ))}
-                    </div>
-                </div>
-            ))
-        }
-    </div>
+          <div class="space-y-4">
+            {FRAPPEVERSE_LINKS[category].map((link) => (
+              <Link link={link.link} title={link.title} />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </PageSection>
