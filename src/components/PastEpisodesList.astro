@@ -9,10 +9,10 @@ let pastEpisodes = episodes.filter((stream) => {
 });
 ---
 
-<ul class="space-y-8 md:space-y-5 mt-12">
+<ul class="space-y-8 md:space-y-5 lg:space-y-0 mt-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
   {
     pastEpisodes.map((stream) => (
-      <li class="space-y-1 md:space-y-0">
+      <li class="space-y-1 md:space-y-0 lg:max-w-sm">
         <Link link={stream.stream_link} title={stream.title} />
       </li>
     ))
