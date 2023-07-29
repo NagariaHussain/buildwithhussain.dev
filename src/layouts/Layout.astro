@@ -27,6 +27,13 @@ const { title } = Astro.props;
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Plausible -->
+    <script
+      defer
+      data-api="https://frappecloud.com/api/event"
+      data-domain="buildwithhussain.dev"
+      src="https://frappecloud.com/js/script.js"></script>
   </head>
   <body>
     <slot />
