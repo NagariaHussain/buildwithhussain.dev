@@ -7,35 +7,30 @@ import SectionHeading from "../components/SectionHeading.astro";
 import RegistrationForm from "../components/RegistrationForm.astro";
 import PastEpisodesList from "../components/PastEpisodesList.astro";
 import AboutMeSection from "../components/AboutMeSection.astro";
+import UpcomingEpisodesList from "../components/UpcomingEpisodesList.astro";
 import FrappeverseSection from "../components/FrappeverseSection.astro";
 ---
 
 <Layout title="#BuildWithHussain">
-	<Hero />
+  <Hero />
 
-	<AboutMeSection />
+  <AboutMeSection />
 
-	<PageSection>
-		<SectionHeading>Episodes</SectionHeading>
-		<PastEpisodesList />
-	</PageSection>
+  <PageSection id="schedule">
+    <SectionHeading>Schedule</SectionHeading>
+    <UpcomingEpisodesList />
+  </PageSection>
 
-	<PageSection>
-		<RegistrationForm />
-	</PageSection>
+  <PageSection>
+    <RegistrationForm />
+  </PageSection>
 
-	<PageSection>
-		<div class="flex justify-center">
-			<a
-				href="/schedule#schedule"
-				class="text-center text-green-900 font-semibold text-xl underline underline-offset-2 hover:underline-offset-4 transition-[text-underline-offset] cursor-pointer"
-				>Check Schedule
-				<i class="ph-bold ph-arrow-right text-green-900"></i>
-			</a>
-		</div>
-	</PageSection>
+  <PageSection>
+    <SectionHeading>Episodes</SectionHeading>
+    <PastEpisodesList />
+  </PageSection>
 
-	<FrappeverseSection />
+  <FrappeverseSection />
 
-	<Footer />
+  <Footer />
 </Layout>
