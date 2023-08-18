@@ -1,6 +1,12 @@
 ---
-import { getBlogDocByRoute, getBlogsList } from "../../utils/blogs";
-
+import Layout from "../../layouts/Layout.astro";
+import { markdown } from "@astropub/md";
+import {
+  getBlogDocByRoute,
+  getBlogsList,
+  getBloggerDoc,
+} from "../../utils/blogs";
+import { getFullAssetURL } from "../../utils/frappe";
 export async function getStaticPaths() {
   const blogsList = await getBlogsList();
 
@@ -12,13 +18,38 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.params;
-
 const articleDoc = await getBlogDocByRoute(article);
+const blogger = await getBloggerDoc(articleDoc.blogger);
+const articleContent = await markdown(articleDoc.content_md);
 ---
 
-<div>Current Article: {article}!
+<Layout title={articleDoc.title}>
+  <!-- <pre>
+    {JSON.stringify(articleDoc, null, 2)}
+  </pre> -->
 
-<pre>
-  {JSON.stringify(articleDoc, null, 2)}
-</pre>
-</div>
+  <!-- <pre>
+    {JSON.stringify(blogger, null, 2)}
+  </pre> -->
+
+  <img
+    class="w-screen h-[40vh] object-cover"
+    src={getFullAssetURL(articleDoc.meta_image)}
+    alt="Blog Hero Image"
+  />
+
+  <div class="px-8 md:max-w-7xl md:mx-auto md:px-24 md:mt-16">
+    <div
+      class="my-10 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-500/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
+    >
+      <h1>{articleDoc.title}</h1>
+      {articleContent}
+    </div>
+
+    <!-- About the author -->
+    <div>
+      <h3 class="text-xl font-semibold">{blogger.full_name}</h3>
+      <p>{blogger.bio}</p>
+    </div>
+  </div>
+</Layout>

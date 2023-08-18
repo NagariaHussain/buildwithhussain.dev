@@ -27,3 +27,7 @@ export function getFrappeCall() {
   const frappe = getFrappeApp();
   return frappe.call();
 }
+
+export function getFullAssetURL(url: string) {
+  return `${FRAPPE_CMS_URL}${url}`;
+}
