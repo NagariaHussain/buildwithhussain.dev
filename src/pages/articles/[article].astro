@@ -43,6 +43,12 @@ const articleContent = await markdown(articleDoc.content_md);
       class="my-10 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-500/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
     >
       <h1>{articleDoc.title}</h1>
+
+      <time
+        class="text-green-900/60 font-bold text-lg"
+        datetime={articleDoc.published_on}>{articleDoc.published_on}</time
+      >
+
       {articleContent}
     </div>
 

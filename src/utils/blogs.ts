@@ -1,4 +1,5 @@
 import { getFrappeDB, getFrappeCall } from "./frappe";
+import { parse, format } from "date-fns";
 
 interface BlogPost {
   name: string;
@@ -11,6 +12,7 @@ interface BlogPost {
   meta_description: string;
   meta_image: string;
   blogger: string;
+  published_on: string;
 }
 
 interface Blogger {
@@ -27,6 +29,10 @@ export async function getBlogsList(): Promise<Array<BlogPost>> {
   const blogs = await db.getDocList("Blog Post", {
     fields: ["route", "name", "title", "meta_image"],
     filters: [["custom_published_on_bwh", "=", 1]],
+    orderBy: {
+      field: "published_on",
+      order: "desc",
+    },
   });
 
   return blogs;
@@ -35,10 +41,18 @@ export async function getBlogsList(): Promise<Array<BlogPost>> {
 export async function getBlogDocByRoute(route: string): Promise<BlogPost> {
   const call = getFrappeCall();
 
-  const blog = await call.get("get-blog-post-by-route", {
+  let blog = await call.get("get-blog-post-by-route", {
     route: route,
   });
-  return blog.message;
+  blog = blog.message;
+
+  // format date
+  blog.published_on = format(
+    parse(blog.published_on, "yyyy-MM-dd", new Date()),
+    "do MMM, yyyy"
+  );
+
+  return blog;
 }
 
 export async function getBloggerDoc(blogger: string): Promise<Blogger> {
