@@ -1,0 +1,24 @@
+---
+import { getBlogDocByRoute, getBlogsList } from "../../utils/blogs";
+
+export async function getStaticPaths() {
+  const blogsList = await getBlogsList();
+
+  const paths = blogsList.map((blog) => ({
+    params: { article: blog.route },
+  }));
+
+  return paths;
+}
+
+const { article } = Astro.params;
+
+const articleDoc = await getBlogDocByRoute(article);
+---
+
+<div>Current Article: {article}!
+
+<pre>
+  {JSON.stringify(articleDoc, null, 2)}
+</pre>
+</div>
