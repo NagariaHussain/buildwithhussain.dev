@@ -20,7 +20,7 @@ interface Blogger {
   full_name: string;
   user: string;
   bio: string;
-  avatar: string;
+  avatar?: string;
 }
 
 export async function getBlogsList(): Promise<Array<BlogPost>> {

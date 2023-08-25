@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
 import { markdown } from "@astropub/md";
 import {
   getBlogDocByRoute,
@@ -40,22 +41,51 @@ const articleContent = await markdown(articleDoc.content_md);
 
   <div class="px-8 md:max-w-7xl md:mx-auto md:px-24 md:mt-16">
     <div
-      class="my-10 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-500/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
+      class="my-10 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-700/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
     >
       <h1>{articleDoc.title}</h1>
 
-      <time
-        class="text-green-900/60 font-bold text-lg"
-        datetime={articleDoc.published_on}>{articleDoc.published_on}</time
-      >
+      <div class="text-green-900/60 font-bold text-lg">
+        <time datetime={articleDoc.published_on}>{articleDoc.published_on}</time
+        >
 
-      {articleContent}
+        &nbsp; ·
+
+        <span>{articleDoc.read_time} min read</span>
+      </div>
+
+      <hr class="mt-5 border-green-800/20 border-1" />
+
+      <div class="mt-5">
+        {articleContent}
+      </div>
     </div>
 
-    <!-- About the author -->
-    <div>
-      <h3 class="text-xl font-semibold">{blogger.full_name}</h3>
-      <p>{blogger.bio}</p>
+    <div class="flex items-center flex-col justify-center">
+      <!-- About the author -->
+      <h2 class="text-green-600/70 text-2xl md:text-3xl font-bold my-10">
+        About the author
+      </h2>
+
+      <img
+        class="w-32 h-32 rounded-full"
+        src={getFullAssetURL(blogger.avatar)}
+        alt={`${blogger.full_name}'s avatar image`}
+      />
+
+      <div class="flex flex-col items-center justify-center mt-4">
+        <h4
+          class="text-green-900 font-semibold text-xl md:text-2xl"
+          title={blogger.full_name}
+        >
+          {blogger.full_name}
+        </h4>
+        <p class="text-green-900 text-lg md:text-xl font-normal mt-4">
+          {blogger.bio}
+        </p>
+      </div>
     </div>
   </div>
+
+  <Footer />
 </Layout>
