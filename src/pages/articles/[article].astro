@@ -28,12 +28,14 @@ const articleContent = await markdown(articleDoc.content_md);
 
 <BlogLayout title={articleDoc.title}>
   <PageSection>
-    <div
-      class="my-10 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-700/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
-    >
-      <h1>{articleDoc.title}</h1>
+    <div class="my-10">
+      <h1
+        class="leading-[140%] text-green-700/70 font-black title text-4xl md:text-5xl"
+      >
+        {articleDoc.title}
+      </h1>
 
-      <p class="font-medium text-base text-green-900/80 mt-6">
+      <p class="font-medium text-base text-green-900/80 mb-6 mt-4">
         {articleDoc.blog_intro}
       </p>
 
@@ -46,9 +48,11 @@ const articleContent = await markdown(articleDoc.content_md);
         <span>{articleDoc.read_time} min read</span>
       </div>
 
-      <hr class="border-green-800/20 border-1" />
+      <hr class="border-green-800/20 border-1 my-10" />
 
-      <div class="mt-5 prose-p:font-inter prose-p:font-normal">
+      <div
+        class="mt-5 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-700/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
+      >
         {articleContent}
       </div>
     </div>
@@ -77,7 +81,7 @@ const articleContent = await markdown(articleDoc.content_md);
 
       <div class="flex flex-col mt-4">
         <p
-          class="text-green-900 text-lg md:text-xl font-normal mt-4 font-inter"
+          class="text-green-900/70 text-lg md:text-xl font-medium mt-4 font-inter"
         >
           {blogger.bio}
         </p>
