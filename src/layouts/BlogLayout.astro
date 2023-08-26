@@ -1,29 +1,49 @@
 ---
 import "@phosphor-icons/web/bold";
 
+export interface Meta {
+  image: string;
+  name: string;
+  description: string;
+  author: string;
+  published_on: string;
+}
 export interface Props {
   title: string;
+  meta: Meta;
 }
 
-const { title } = Astro.props;
+const { title, meta } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="antialiased bg-green-50">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Official website of #BuildWithHussain YouTube Channel. New Episode Every Wednesday. Check past episodes, schedule, register and more. Frappeverse rocks!"
-    />
-    <meta name="title" content="Learn to build world class web apps" />
+    <meta name="name" content={meta.name} />
+    <meta name="title" content={meta.name} />
+    <meta name="description" content={meta.description} />
+    <meta name="author" content={meta.author} />
+    <meta name="image" content={meta.image} />
+    <meta name="language" content="en" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- add og image -->
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:title" content="Learn to build world class web apps" />
-    <meta name="image" content="/og-image.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={meta.image} />
+    <meta property="og:title" content={meta.name} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:author" content={meta.author} />
+    <meta property="og:published_time" content={meta.published_on} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content={meta.image} />
+    <meta property="twitter:title" content={meta.name} />
+    <meta property="twitter:description" content={meta.description} />
+    <meta property="twitter:author" content={meta.author} />
+    <meta property="twitter:published_time" content={meta.published_on} />
+
+    <meta property="datePublished" content={meta.published_on} />
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

@@ -7,7 +7,7 @@ import {
   getBloggerDoc,
 } from "../../utils/blogs";
 import { getFullAssetURL } from "../../utils/frappe";
-import BlogLayout from "../../layouts/BlogLayout.astro";
+import BlogLayout, { Meta } from "../../layouts/BlogLayout.astro";
 import PageSection from "../../layouts/PageSection.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 export async function getStaticPaths() {
@@ -24,9 +24,16 @@ const { article } = Astro.params;
 const articleDoc = await getBlogDocByRoute(article);
 const blogger = await getBloggerDoc(articleDoc.blogger);
 const articleContent = await markdown(articleDoc.content_md);
+const articleMeta: Meta = {
+  author: blogger.full_name,
+  description: articleDoc.blog_intro,
+  image: getFullAssetURL(articleDoc.meta_image),
+  name: articleDoc.title,
+  published_on: articleDoc.published_on,
+};
 ---
 
-<BlogLayout title={articleDoc.title}>
+<BlogLayout title={articleDoc.title} meta={articleMeta}>
   <PageSection>
     <div>
       <!-- Back Button -->
@@ -48,7 +55,8 @@ const articleContent = await markdown(articleDoc.content_md);
       </p>
 
       <div class="text-green-900/60 font-bold text-lg">
-        <time datetime={articleDoc.published_on}>{articleDoc.published_on}</time
+        <time datetime={articleDoc.published_on}
+          >{articleDoc.published_on_formatted}</time
         >
 
         &nbsp; ·

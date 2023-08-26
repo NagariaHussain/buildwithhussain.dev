@@ -13,6 +13,7 @@ interface BlogPost {
   meta_image: string;
   blogger: string;
   published_on: string;
+  published_on_formatted?: string;
 }
 
 interface Blogger {
@@ -55,7 +56,7 @@ export async function getBlogDocByRoute(route: string): Promise<BlogPost> {
   blog = blog.message;
 
   // format date
-  blog.published_on = format(
+  blog.published_on_formatted = format(
     parse(blog.published_on, "yyyy-MM-dd", new Date()),
     "do MMM, yyyy"
   );
