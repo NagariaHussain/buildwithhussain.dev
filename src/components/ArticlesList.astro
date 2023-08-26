@@ -1,0 +1,42 @@
+---
+import { format, parse } from "date-fns";
+import { getBlogsList } from "../utils/blogs";
+
+const blogsList = await getBlogsList();
+
+// format published_on date
+blogsList.forEach((article) => {
+  article.published_on = format(
+    parse(article.published_on, "yyyy-MM-dd", new Date()),
+    "do MMM, yyyy"
+  );
+
+  article.route = `/articles/${article.route}`;
+});
+---
+
+<ul class="divide-y-2 divide-green-900/10 md:divide-y-0">
+  {
+    blogsList.map((article) => (
+      <li class="font-bold text-lg space-y-1 py-10 md:py-4 md:space-y-0">
+        <a
+          class="group md:flex md:items-center md:justify-between"
+          target="_blank"
+          href={article.route}
+        >
+          <div class="flex flex-row items-center justify-between">
+            <h3 class="text-gray-900">{article.title}</h3>
+            <i class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900 md:ml-5" />
+          </div>
+          <div>
+            <time class="text-gray-500" datetime={article.published_on}>
+              <span>{article.published_on}</span>
+              <span class="font-thin text-green-950/20">|</span>
+              <span>by {article.blogger}</span>
+            </time>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>

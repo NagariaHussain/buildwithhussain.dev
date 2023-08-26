@@ -27,7 +27,15 @@ export async function getBlogsList(): Promise<Array<BlogPost>> {
   const db = getFrappeDB();
 
   const blogs = await db.getDocList("Blog Post", {
-    fields: ["route", "name", "title", "meta_image"],
+    fields: [
+      "route",
+      "name",
+      "title",
+      "meta_image",
+      "published_on",
+      "blog_intro",
+      "blogger",
+    ],
     filters: [["custom_published_on_bwh", "=", 1]],
     orderBy: {
       field: "published_on",

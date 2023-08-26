@@ -1,18 +1,16 @@
 ---
+import ArticlesList from "../../components/ArticlesList.astro";
+import Hero from "../../components/Hero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
 import Layout from "../../layouts/Layout.astro";
-import { getBlogsList } from "../../utils/blogs";
-
-const blogsList = await getBlogsList();
+import PageSection from "../../layouts/PageSection.astro";
 ---
 
 <Layout title="Articles - Build With Hussain">
-  <ul>
-    {
-      blogsList.map((article) => (
-        <li>
-          <a href={`/articles/${article.route}`}>{article.title}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <Hero />
+
+  <PageSection>
+    <SectionHeading>All Articles</SectionHeading>
+    <ArticlesList />
+  </PageSection>
 </Layout>
