@@ -28,9 +28,17 @@ const articleContent = await markdown(articleDoc.content_md);
 
 <BlogLayout title={articleDoc.title}>
   <PageSection>
-    <div class="my-10">
+    <div>
+      <!-- Back Button -->
+      <a
+        href="/articles"
+        class="text-green-900/60 block font-medium text-base hover:text-green-900/80 my-4"
+      >
+        ← Back to All Articles
+      </a>
+
       <h1
-        class="leading-[140%] text-green-700/70 font-black title text-4xl md:text-5xl"
+        class="leading-[140%] text-green-800/90 font-black title text-4xl md:text-5xl"
       >
         {articleDoc.title}
       </h1>
