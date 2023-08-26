@@ -21,15 +21,18 @@ blogsList.forEach((article) => {
       <li class="font-bold text-lg space-y-1 py-10 md:py-4 md:space-y-0">
         <a
           class="group md:flex md:items-center md:justify-between"
-          target="_blank"
           href={article.route}
         >
           <div class="flex flex-row items-center justify-between">
-            <h3 class="text-gray-900">{article.title}</h3>
-            <i class="ph-bold ph-arrow-right group-hover:translate-x-2 transition-transform text-green-900 md:ml-5" />
+            <div class="mb-3 md:mb-0">
+              <h3 class="text-gray-900">{article.title}</h3>
+              <p class="font-medium text-base text-green-900/80 mt-1">
+                {article.blog_intro}
+              </p>
+            </div>
           </div>
           <div>
-            <time class="text-gray-500" datetime={article.published_on}>
+            <time class="text-green-900/60" datetime={article.published_on}>
               <span>{article.published_on}</span>
               <span class="font-thin text-green-950/20">|</span>
               <span>by {article.blogger}</span>

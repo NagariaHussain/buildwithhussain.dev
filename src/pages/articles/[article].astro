@@ -1,5 +1,4 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
 import { markdown } from "@astropub/md";
 import {
@@ -8,6 +7,9 @@ import {
   getBloggerDoc,
 } from "../../utils/blogs";
 import { getFullAssetURL } from "../../utils/frappe";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import PageSection from "../../layouts/PageSection.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
 export async function getStaticPaths() {
   const blogsList = await getBlogsList();
 
@@ -24,26 +26,16 @@ const blogger = await getBloggerDoc(articleDoc.blogger);
 const articleContent = await markdown(articleDoc.content_md);
 ---
 
-<Layout title={articleDoc.title}>
-  <!-- <pre>
-    {JSON.stringify(articleDoc, null, 2)}
-  </pre> -->
-
-  <!-- <pre>
-    {JSON.stringify(blogger, null, 2)}
-  </pre> -->
-
-  <img
-    class="w-screen h-[40vh] object-cover"
-    src={getFullAssetURL(articleDoc.meta_image)}
-    alt="Blog Hero Image"
-  />
-
-  <div class="px-8 md:max-w-7xl md:mx-auto md:px-24 md:mt-16">
+<BlogLayout title={articleDoc.title}>
+  <PageSection>
     <div
       class="my-10 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-700/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
     >
       <h1>{articleDoc.title}</h1>
+
+      <p class="font-medium text-base text-green-900/80 mt-6">
+        {articleDoc.blog_intro}
+      </p>
 
       <div class="text-green-900/60 font-bold text-lg">
         <time datetime={articleDoc.published_on}>{articleDoc.published_on}</time
@@ -54,38 +46,44 @@ const articleContent = await markdown(articleDoc.content_md);
         <span>{articleDoc.read_time} min read</span>
       </div>
 
-      <hr class="mt-5 border-green-800/20 border-1" />
+      <hr class="border-green-800/20 border-1" />
 
-      <div class="mt-5">
+      <div class="mt-5 prose-p:font-inter prose-p:font-normal">
         {articleContent}
       </div>
     </div>
 
-    <div class="flex items-center flex-col justify-center">
-      <!-- About the author -->
-      <h2 class="text-green-600/70 text-2xl md:text-3xl font-bold my-10">
-        About the author
-      </h2>
+    <hr class="my-5 border-green-800/20 border-1" />
 
-      <img
-        class="w-32 h-32 rounded-full"
-        src={getFullAssetURL(blogger.avatar)}
-        alt={`${blogger.full_name}'s avatar image`}
-      />
+    <div class="flex flex-col">
+      <div class="my-10">
+        <SectionHeading>About the author</SectionHeading>
+      </div>
 
-      <div class="flex flex-col items-center justify-center mt-4">
+      <div class="flex flex-row items-center space-x-6">
+        <img
+          class="w-32 h-32 rounded-full border-4 border-green-900/60"
+          src={getFullAssetURL(blogger.avatar)}
+          alt={`${blogger.full_name}'s avatar image`}
+        />
+
         <h4
           class="text-green-900 font-semibold text-xl md:text-2xl"
           title={blogger.full_name}
         >
           {blogger.full_name}
         </h4>
-        <p class="text-green-900 text-lg md:text-xl font-normal mt-4">
+      </div>
+
+      <div class="flex flex-col mt-4">
+        <p
+          class="text-green-900 text-lg md:text-xl font-normal mt-4 font-inter"
+        >
           {blogger.bio}
         </p>
       </div>
     </div>
-  </div>
+  </PageSection>
 
   <Footer />
-</Layout>
+</BlogLayout>

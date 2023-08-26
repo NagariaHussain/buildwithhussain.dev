@@ -1,0 +1,45 @@
+---
+import "@phosphor-icons/web/bold";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="antialiased bg-green-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Official website of #BuildWithHussain YouTube Channel. New Episode Every Wednesday. Check past episodes, schedule, register and more. Frappeverse rocks!"
+    />
+    <meta name="title" content="Learn to build world class web apps" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- add og image -->
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:title" content="Learn to build world class web apps" />
+    <meta name="image" content="/og-image.png" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Plausible -->
+    <script
+      defer
+      data-api="https://frappecloud.com/api/event"
+      data-domain="buildwithhussain.dev"
+      src="https://frappecloud.com/js/script.js"></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@400&display=swap");
+</style>
