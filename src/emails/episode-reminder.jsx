@@ -1,9 +1,7 @@
 import { Html } from "@react-email/html";
-import { Head } from "@react-email/head";
-import { Body } from "@react-email/body";
 import { Font } from "@react-email/font";
-import { Button } from "@react-email/button";
 import { Tailwind } from "@react-email/tailwind";
+import { Container, Body, Head, Button } from "@react-email/components";
 
 export const Mail = () => {
   const first_name = "Hussain";
