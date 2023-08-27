@@ -15,31 +15,33 @@ blogsList.forEach((article) => {
 });
 ---
 
-<ul class="divide-y-2 divide-green-900/10 md:divide-y-0">
-  {
-    blogsList.map((article) => (
-      <li class="font-bold text-lg space-y-1 py-10 md:py-4 md:space-y-0">
-        <a
-          class="group md:flex md:items-center md:justify-between"
-          href={article.route}
-        >
-          <div class="flex flex-row items-center justify-between">
-            <div class="mb-3 md:mb-0">
-              <h3 class="text-gray-900">{article.title}</h3>
-              <p class="font-medium text-base text-green-900/80 mt-1">
-                {article.blog_intro}
-              </p>
+<div class="space-y-8 md:space-y-5 lg:space-y-0 mt-12">
+  <ul class="divide-y-2 divide-green-900/10 md:divide-y-0">
+    {
+      blogsList.map((article) => (
+        <li class="font-bold text-lg space-y-1 pb-10 md:py-4 md:space-y-0">
+          <a
+            class="group md:flex md:items-center md:justify-between"
+            href={article.route}
+          >
+            <div class="flex flex-row items-center justify-between">
+              <div class="mb-3 md:mb-0">
+                <h3 class="text-gray-900">{article.title}</h3>
+                <p class="font-medium text-base text-green-900/80 mt-1">
+                  {article.blog_intro}
+                </p>
+              </div>
             </div>
-          </div>
-          <div>
-            <time class="text-green-900/60" datetime={article.published_on}>
-              <span>{article.published_on}</span>
-              <span class="font-thin text-green-950/20">|</span>
-              <span>by {article.blogger}</span>
-            </time>
-          </div>
-        </a>
-      </li>
-    ))
-  }
-</ul>
+            <div>
+              <time class="text-green-900/60" datetime={article.published_on}>
+                <span>{article.published_on}</span>
+                <span class="font-thin text-green-950/20">|</span>
+                <span>by {article.blogger}</span>
+              </time>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

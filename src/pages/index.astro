@@ -9,6 +9,7 @@ import PastEpisodesList from "../components/PastEpisodesList.astro";
 import AboutMeSection from "../components/AboutMeSection.astro";
 import UpcomingEpisodesList from "../components/UpcomingEpisodesList.astro";
 import FrappeverseSection from "../components/FrappeverseSection.astro";
+import ArticlesList from "../components/ArticlesList.astro";
 ---
 
 <Layout title="#BuildWithHussain">
@@ -23,6 +24,19 @@ import FrappeverseSection from "../components/FrappeverseSection.astro";
 
   <PageSection>
     <RegistrationForm />
+  </PageSection>
+
+  <PageSection>
+    <SectionHeading>Featured Articles</SectionHeading>
+    <ArticlesList />
+    <div>
+      <a
+        href="/articles"
+        class="text-green-900/60 block font-medium text-base hover:text-green-900/80 my-4"
+      >
+        All Articles →
+      </a>
+    </div>
   </PageSection>
 
   <PageSection>
