@@ -4,7 +4,7 @@ import { Tailwind } from "@react-email/tailwind";
 import { Container, Body, Head, Link } from "@react-email/components";
 
 const EmailFooter = () => (
-  <div className="mt-10">
+  <div className="my-10">
     <p>
       Hussain <br />
       <span className="text-2xl">✌🏼</span>
