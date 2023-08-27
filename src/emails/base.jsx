@@ -1,12 +1,25 @@
 import { Html } from "@react-email/html";
 import { Font } from "@react-email/font";
 import { Tailwind } from "@react-email/tailwind";
-import { Container, Body, Head, Button } from "@react-email/components";
+import { Container, Body, Head, Link } from "@react-email/components";
+
+const EmailFooter = () => (
+  <div className="mt-10">
+    <p>
+      Hussain <br />
+      <span className="text-2xl">✌🏼</span>
+    </p>
+
+    <Link
+      href="https://buildwithhussain.dev"
+      class="text-green-700 underline underline-offset-2"
+    >
+      buildwithhussain.dev
+    </Link>
+  </div>
+);
 
 export const MailBase = ({ children }) => {
-  const first_name = "Hussain";
-  const stream_title = "How to build a React app with Tailwind CSS";
-
   return (
     <Html lang="en">
       <Head>
@@ -46,14 +59,11 @@ export const MailBase = ({ children }) => {
           },
         }}
       >
-        <Body className="bg-green-50">
+        <Body className="bg-green-50 text-green-900">
           <Container className="font-sans px-4">
             {children}
 
-            <p>
-              Hussain <br />
-              ✌🏼
-            </p>
+            <EmailFooter />
           </Container>
         </Body>
       </Tailwind>
