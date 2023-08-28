@@ -3,6 +3,14 @@ export const beginnerResources = [
     title: "Introduction to Frappe Framework",
     link: "https://www.youtube.com/live/HZzialvEmHo?si=SkMAtWruD2pu2ruH",
   },
+  {
+    title: "Introduction to Python & Server Scripting",
+    link: "https://www.youtube.com/live/Tk6ZPmiV5DA?si=oNn2ev4NIYL4nsB7",
+  },
+  {
+    title: "Introduction to JavaScript & Client Scripting",
+    link: "https://www.youtube.com/live/vqVd2cId1ys?si=u7aWeLJ4Ov5EdC9q",
+  },
 ];
 
 export const frappeverseLinks = {
