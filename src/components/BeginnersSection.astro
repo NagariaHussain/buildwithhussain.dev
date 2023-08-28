@@ -1,0 +1,22 @@
+---
+import Link from "./Link.astro";
+
+const beginnerResources = [
+  {
+    title: "Introduction to Frappe Framework",
+    link: "https://www.youtube.com/live/HZzialvEmHo?si=SkMAtWruD2pu2ruH",
+  },
+];
+---
+
+<ul
+  class="space-y-8 md:space-y-5 lg:space-y-0 mt-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6"
+>
+  {
+    beginnerResources.map((resource) => (
+      <li class="space-y-1 md:space-y-0 lg:max-w-sm">
+        <Link link={resource.link} title={resource.title} />
+      </li>
+    ))
+  }
+</ul>
