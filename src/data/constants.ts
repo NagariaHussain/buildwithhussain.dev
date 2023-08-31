@@ -21,6 +21,10 @@ export const frappeverseLinks = {
   ],
   goodies: [
     {
+      title: "Awesome Frappe",
+      link: "https://github.com/gavindsouza/awesome-frappe",
+    },
+    {
       title: "The Missing Frappe Manual",
       link: "https://tmfm.buildwithhussain.dev",
     },
