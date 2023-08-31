@@ -15,7 +15,7 @@ blogsList.forEach((article) => {
 });
 ---
 
-<div class="space-y-8 md:space-y-5 lg:space-y-0 mt-12">
+<div class="space-y-8 md:space-y-5 lg:space-y-0 mt-12" transition:animate="slide">
   <ul class="divide-y-2 divide-green-900/10 md:divide-y-0">
     {
       blogsList.map((article) => (
@@ -26,8 +26,8 @@ blogsList.forEach((article) => {
           >
             <div class="flex flex-row items-center justify-between">
               <div class="mb-3 md:mb-0">
-                <h3 class="text-gray-900">{article.title}</h3>
-                <p class="font-medium text-base text-green-900/80 mt-1">
+                <h3 class="text-gray-900" transition:name="blog_title">{article.title}</h3>
+                <p transition:name="blog_intro" class="font-medium text-base text-green-900/80 mt-1">
                   {article.blog_intro}
                 </p>
               </div>

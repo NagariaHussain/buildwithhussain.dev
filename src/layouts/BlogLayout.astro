@@ -1,5 +1,6 @@
 ---
 import "@phosphor-icons/web/bold";
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Meta {
   image: string;
@@ -54,6 +55,8 @@ const { title, meta } = Astro.props;
       data-api="https://frappecloud.com/api/event"
       data-domain="buildwithhussain.dev"
       src="https://frappecloud.com/js/script.js"></script>
+    
+      <ViewTransitions />
   </head>
   <body>
     <slot />
