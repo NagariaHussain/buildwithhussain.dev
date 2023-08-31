@@ -8,6 +8,7 @@ import Footer from "../../components/Footer.astro";
 import BlogLayout, { type Meta } from "../../layouts/BlogLayout.astro";
 import PageSection from "../../layouts/PageSection.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import ArticleReactions from "../../components/ArticleReactions.jsx";
 
 import { getParsedMarkdown } from "../../utils/md";
 import { getFullAssetURL } from "../../utils/frappe";
@@ -54,7 +55,10 @@ const articleMeta: Meta = {
         {articleDoc.title}
       </h1>
 
-      <p transition:name="blog_intro" class="font-medium text-base text-green-900/80 mb-6 mt-4">
+      <p
+        transition:name="blog_intro"
+        class="font-medium text-base text-green-900/80 mb-6 mt-4"
+      >
         {articleDoc.blog_intro}
       </p>
 
@@ -63,7 +67,7 @@ const articleMeta: Meta = {
           >{articleDoc.published_on_formatted}</time
         >
 
-        &nbsp; ·
+         &nbsp; ·
 
         <span>{articleDoc.read_time} min read</span>
       </div>
@@ -73,8 +77,11 @@ const articleMeta: Meta = {
       <div
         class="mt-5 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-700/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
         set:html={articleContent}
-      >
-      </div>
+      />
+    </div>
+
+    <div class="mt-12">
+      <ArticleReactions articleName={articleDoc.name} client:visible />
     </div>
 
     <hr class="my-5 border-green-800/20 border-1" />
