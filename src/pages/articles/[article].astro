@@ -1,15 +1,17 @@
 ---
-import Footer from "../../components/Footer.astro";
-import { markdown } from "@astropub/md";
 import {
   getBlogDocByRoute,
   getBlogsList,
   getBloggerDoc,
 } from "../../utils/blogs";
-import { getFullAssetURL } from "../../utils/frappe";
-import BlogLayout, { Meta } from "../../layouts/BlogLayout.astro";
+import Footer from "../../components/Footer.astro";
+import BlogLayout, { type Meta } from "../../layouts/BlogLayout.astro";
 import PageSection from "../../layouts/PageSection.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+
+import { getParsedMarkdown } from "../../utils/md";
+import { getFullAssetURL } from "../../utils/frappe";
+
 export async function getStaticPaths() {
   const blogsList = await getBlogsList();
 
@@ -23,7 +25,8 @@ export async function getStaticPaths() {
 const { article } = Astro.params;
 const articleDoc = await getBlogDocByRoute(article);
 const blogger = await getBloggerDoc(articleDoc.blogger);
-const articleContent = await markdown(articleDoc.content_md);
+const articleContent = await getParsedMarkdown(articleDoc.content_md);
+
 const articleMeta: Meta = {
   author: blogger.full_name,
   description: articleDoc.blog_intro,
@@ -68,8 +71,8 @@ const articleMeta: Meta = {
 
       <div
         class="mt-5 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-700/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
+        set:html={articleContent}
       >
-        {articleContent}
       </div>
     </div>
 
