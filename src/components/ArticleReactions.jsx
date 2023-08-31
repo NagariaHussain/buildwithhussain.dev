@@ -59,7 +59,7 @@ export default function ArticleReactions({ articleName }) {
         <>
           <li>
             <button
-              className="text-2xl px-3 py-2 flex flex-row space-x-2 bg-green-500/20 rounded text-green-900 active:bg-green-500/50 hover:bg-green-500/40"
+              className="text-xl font-medium px-3 py-2 flex flex-row space-x-2 bg-green-500/20 rounded text-green-900 active:bg-green-500/50 hover:bg-green-500/40"
               onClick={handleLike}
             >
               <span>👍🏼</span>
@@ -68,7 +68,7 @@ export default function ArticleReactions({ articleName }) {
           </li>
           <li>
             <button
-              className="text-2xl px-3 py-2 flex flex-row space-x-2 bg-green-500/20 rounded text-green-900 active:bg-green-500/50 hover:bg-green-500/40"
+              className="text-xl font-medium px-3 py-2 flex flex-row space-x-2 bg-green-500/20 rounded text-green-900 active:bg-green-500/50 hover:bg-green-500/40"
               onClick={handle100}
             >
               <span>💯</span>
