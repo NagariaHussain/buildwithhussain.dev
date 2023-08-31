@@ -1,12 +1,13 @@
 ---
-import HussainWithMic from "/hussain-with-mic.png";
+import { Image } from "astro:assets";
+import HussainWithMic from "../../public/hussain-with-mic.png";
 ---
 
 <section class="px-9 md:px-24 mt-10 md:mt-52 md:max-w-7xl md:mx-auto">
   <div
     class="space-y-12 md:space-y-0 md:space-x-14 md:flex md:items-end md:justify-center"
   >
-    <img alt="Hussain holding a mic, photo from ERPNext Conference 2022" src={HussainWithMic} class="w-2/3 md:w-1/4 shrink-0" />
+    <Image alt="Hussain holding a mic, photo from ERPNext Conference 2022" src={HussainWithMic} class="w-2/3 md:w-1/4 shrink-0" />
 
     <div class="space-y-8">
       <div class="md:space-y-1">

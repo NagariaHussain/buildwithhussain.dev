@@ -1,5 +1,6 @@
 ---
-import Logo from "/logo.png";
+import Logo from "../../public/logo.png";
+import { Image } from "astro:assets";
 ---
 
 <section class="bg-white w-full">
@@ -7,7 +8,7 @@ import Logo from "/logo.png";
     class="w-full px-8 md:max-w-7xl md:mx-auto md:px-24 pb-5 pt-10 md:pt-32 md:flex md:flex-row-reverse md:justify-between md:items-center"
   >
     <a href="/">
-      <img src={Logo} alt="hero logo" class="w-28 h-28 mb-20 md:mb-0" />
+      <Image src={Logo} alt="hero logo" class="w-28 h-28 mb-20 md:mb-0" />
     </a>
 
     <div class="space-y-3">
