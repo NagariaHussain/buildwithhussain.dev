@@ -28,6 +28,15 @@ export default function ArticleReactions({ articleName }) {
     incrementReactionInBackend("hundred", articleName);
   };
 
+  const handleConfetti = () => {
+    setReactionCounts({
+      ...reactionCounts,
+      confetti: reactionCounts.confetti + 1,
+    });
+
+    incrementReactionInBackend("confetti", articleName);
+  };
+
   React.useEffect(() => {
     // fetch only once!
     if (initialReactionsFetched) return;
@@ -42,6 +51,7 @@ export default function ArticleReactions({ articleName }) {
         setReactionCounts({
           likes: data.reactions.count_like,
           hundred: data.reactions.count_100,
+          confetti: data.reactions.count_confetti,
         });
         setIsLoadingReactions(false);
       });
@@ -52,7 +62,7 @@ export default function ArticleReactions({ articleName }) {
   return (
     <ul className="flex flex-row items-center justify-center md:justify-start space-x-4">
       {isLoadingReactions && (
-        <span class="text-green-900 text-sm">Loading Reactions...</span>
+        <span className="text-green-900 text-sm">Loading Reactions...</span>
       )}
 
       {!isLoadingReactions && (
@@ -73,6 +83,15 @@ export default function ArticleReactions({ articleName }) {
             >
               <span>💯</span>
               <span>{reactionCounts.hundred}</span>
+            </button>
+          </li>
+          <li>
+            <button
+              className="text-xl font-medium px-3 py-2 flex flex-row space-x-2 bg-green-500/20 rounded text-green-900 active:bg-green-500/50 hover:bg-green-500/40"
+              onClick={handleConfetti}
+            >
+              <span>🎉</span>
+              <span>{reactionCounts.confetti}</span>
             </button>
           </li>
         </>
