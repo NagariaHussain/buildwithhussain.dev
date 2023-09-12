@@ -12,6 +12,7 @@ import ArticleReactions from "../../components/ArticleReactions.jsx";
 
 import { getParsedMarkdown } from "../../utils/md";
 import { getFullAssetURL } from "../../utils/frappe";
+import StyledMarkdown from "../../components/StyledMarkdown.astro";
 
 export async function getStaticPaths() {
   const blogsList = await getBlogsList();
@@ -74,10 +75,7 @@ const articleMeta: Meta = {
 
       <hr class="border-green-800/20 border-1 my-10" />
 
-      <div
-        class="mt-5 prose prose-green prose-lg md:prose-xl prose-h2:text-green-900 prose-h1:text-green-700/70 prose-h1:font-black prose-h1:title prose-h1:text-4xl md:prose-h1:text-5xl"
-        set:html={articleContent}
-      />
+      <StyledMarkdown set:html={articleContent} />
     </div>
 
     <div class="mt-12">
