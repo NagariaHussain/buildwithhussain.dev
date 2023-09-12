@@ -1,0 +1,17 @@
+---
+import Hero from "../components/Hero.astro";
+import StyledMarkdown from "../components/StyledMarkdown.astro";
+import Layout from "./Layout.astro";
+import PageSection from "./PageSection.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <Hero />
+  
+  <PageSection>
+    <StyledMarkdown>
+      <slot />
+    </StyledMarkdown>
+  </PageSection>
+</Layout>
