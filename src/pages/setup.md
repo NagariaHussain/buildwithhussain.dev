@@ -15,6 +15,10 @@ I use the Apple MacBook Pro 16" (32GB RAM, M1 Pro) as my daily driver. All the s
 
 ### Software
 
+1. [Raycast](https://www.raycast.com/): Replaced my MacOS spotlight with this super powerful command palette. This is also where the confetti (🎉) comes from! I have assigned a keyboard shortcut to the confetti animation.
+
+![Confetti Option in Raycast](/screenshot/confetti_in_raycast.png)
+
 1. [Open Broadcast Studio (OBS)](https://obsproject.com/welcome): for live streaming. It is nicely integrated with YouTube so you could just connect you account and start streaming an scheduled stream. You can even schedule a stream and access the live chat from right inside OBS!
 
 2. [Arc Browser](https://arc.net/): Everything through the command bar! My most used keyboard shortcut is `CMD + T` to open the command bar!
