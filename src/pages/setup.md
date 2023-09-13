@@ -19,7 +19,9 @@ I use the Apple MacBook Pro 16" (32GB RAM, M1 Pro) as my daily driver. All the s
 
 ![Confetti Option in Raycast](/screenshot/confetti_in_raycast.png)
 
-2. [Open Broadcast Studio (OBS)](https://obsproject.com/welcome): for live streaming. It is nicely integrated with YouTube so you could just connect you account and start streaming an scheduled stream. You can even schedule a stream and access the live chat from right inside OBS!
+2. [VS Code](https://vscode.dev/): Code Editor of Choice. Always. The magical autocomplete you see on the streams is [GitHub Copilot](https://github.com/features/copilot).
+
+3. [Open Broadcast Studio (OBS)](https://obsproject.com/welcome): for live streaming. It is nicely integrated with YouTube so you could just connect you account and start streaming an scheduled stream. You can even schedule a stream and access the live chat from right inside OBS!
 
     I have setup scenes for a lot of scenarios like screen share with guest, talking Hussain etc. and I just have to click to switch to a scenes (basically a setup of audio and video sources):
 
@@ -31,9 +33,9 @@ I use the Apple MacBook Pro 16" (32GB RAM, M1 Pro) as my daily driver. All the s
 
 1. [Arc Browser](https://arc.net/): Everything through the command bar! My most used keyboard shortcut is `CMD + T` to open the command bar!
 
-1. [VS Code](https://vscode.dev/): Code Editor of Choice. Always. The magical autocomplete you see on the streams is [GitHub Copilot](https://github.com/features/copilot).
-
 1. [DaVinci Resolve (FREE)](https://www.blackmagicdesign.com/products/davinciresolve) for all the motion graphics (intro video) and video editing needs.
+
+1. [Screen Studio](https://screen.studio): For those seek demo videos with automatic zoom/pan and mouse following!
 
 ### Streaming Hardware
 
