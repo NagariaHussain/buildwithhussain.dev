@@ -37,6 +37,8 @@ I use the Apple MacBook Pro 16" (32GB RAM, M1 Pro) as my daily driver. All the s
 
 1. [Screen Studio](https://screen.studio): For those sleek demo videos with automatic zoom/pan and mouse following!
 
+1. [Figma](https://figma.com): For all the design needs including thumbnails, product design and more.
+
 ### Streaming Hardware
 
 1. [Blue Yeti Microphone](https://www.amazon.in/Blue-Yeti-USB-Microphone-Midnight/dp/B01LY6Z2M6) directly plugged into my MacBook with [Tonor Microphone Arm Stand](https://www.amazon.in/gp/product/B082W4B7SX)
