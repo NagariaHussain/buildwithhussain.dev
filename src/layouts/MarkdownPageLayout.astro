@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import StyledMarkdown from "../components/StyledMarkdown.astro";
 import Layout from "./Layout.astro";
@@ -14,4 +15,6 @@ const { frontmatter } = Astro.props;
       <slot />
     </StyledMarkdown>
   </PageSection>
+
+  <Footer />
 </Layout>
