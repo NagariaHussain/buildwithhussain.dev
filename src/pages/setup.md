@@ -35,7 +35,7 @@ I use the Apple MacBook Pro 16" (32GB RAM, M1 Pro) as my daily driver. All the s
 
 1. [DaVinci Resolve (FREE)](https://www.blackmagicdesign.com/products/davinciresolve) for all the motion graphics (intro video) and video editing needs.
 
-1. [Screen Studio](https://screen.studio): For those seek demo videos with automatic zoom/pan and mouse following!
+1. [Screen Studio](https://screen.studio): For those sleek demo videos with automatic zoom/pan and mouse following!
 
 ### Streaming Hardware
 
