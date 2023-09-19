@@ -17,9 +17,13 @@ I use the Apple MacBook Pro 16" (32GB RAM, M1 Pro) as my daily driver. All the s
 
 1. [Raycast](https://www.raycast.com/): Replaced my MacOS spotlight with this super powerful command palette. This is also where the confetti (🎉) comes from! I have assigned a keyboard shortcut to the confetti animation.
 
-![Confetti Option in Raycast](/screenshot/confetti_in_raycast.png)
+    ![Confetti Option in Raycast](/screenshot/confetti_in_raycast.png)
 
-2. [VS Code](https://vscode.dev/): Code Editor of Choice. Always. The magical autocomplete you see on the streams is [GitHub Copilot](https://github.com/features/copilot).
+1. [VS Code](https://vscode.dev/): Code Editor of Choice. Always. The magical autocomplete you see on the streams is [GitHub Copilot](https://github.com/features/copilot).
+
+1. [Cleanshot X](https://cleanshot.sjv.io/jrVvq0): For everything related to screenshots! This app is worth every penny. You can add cool backgrounds, annotate, and more. Here is screenshot I posted on SM which was taken using Cleanshot X:
+
+    ![Build With Hussain Frappe Insights Dashboard Screenshot](/screenshot/insights_cleanshot.jpeg)
 
 3. [Open Broadcast Studio (OBS)](https://obsproject.com/welcome): for live streaming. It is nicely integrated with YouTube so you could just connect you account and start streaming an scheduled stream. You can even schedule a stream and access the live chat from right inside OBS!
 
