@@ -34,9 +34,9 @@ blogsList.forEach((article) => {
             </div>
             <div>
               <time class="text-green-900/60" datetime={article.published_on}>
+                <span>{article.category}</span>
+                <span class="font-thin text-green-950/20 px-1">|</span>
                 <span>{article.published_on}</span>
-                <span class="font-thin text-green-950/20">|</span>
-                <span>by {article.blogger}</span>
               </time>
             </div>
           </a>

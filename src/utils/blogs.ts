@@ -14,6 +14,7 @@ interface BlogPost {
   blogger: string;
   published_on: string;
   published_on_formatted?: string;
+  category: string;
 }
 
 interface Blogger {
@@ -36,6 +37,7 @@ export async function getBlogsList(): Promise<Array<BlogPost>> {
       "published_on",
       "blog_intro",
       "blogger",
+      "blog_category.title as category"
     ],
     filters: [["custom_published_on_bwh", "=", 1]],
     orderBy: {
