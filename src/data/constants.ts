@@ -4,6 +4,10 @@ export const beginnerResources = [
     link: "https://www.youtube.com/live/HZzialvEmHo?si=SkMAtWruD2pu2ruH",
   },
   {
+    title: "Frappe + Apps for Non-Developers Training",
+    link: "https://frappe.school/batches/details/CLS-02330",
+  },
+  {
     title: "Introduction to Python & Server Scripting",
     link: "https://www.youtube.com/live/Tk6ZPmiV5DA?si=oNn2ev4NIYL4nsB7",
   },
