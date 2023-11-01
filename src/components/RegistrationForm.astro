@@ -1,5 +1,4 @@
 ---
-
 ---
 
 <form id="registeration-form" class="sm:w-full">
@@ -40,6 +39,8 @@
 </form>
 
 <script>
+  import { FRAPPE_CMS_URL } from "../data/constants";
+  
   function handleOnRegister(e) {
     // get form data
     const formData = new FormData(e.target);
@@ -57,7 +58,7 @@
     formData.delete("first_name");
 
     // make a post request to cms.buildwithhussain.dev with the form data and cors enabled
-    fetch("https://cms.buildwithhussain.dev/", {
+    fetch(FRAPPE_CMS_URL, {
       method: "POST",
       body: formData,
       mode: "cors",

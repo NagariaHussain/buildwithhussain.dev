@@ -1,3 +1,5 @@
+export const FRAPPE_CMS_URL = "https://platform.buildwithhussain.dev/";
+
 export const beginnerResources = [
   {
     title: "Introduction to Frappe Framework",

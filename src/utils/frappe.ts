@@ -1,6 +1,5 @@
 import { FrappeApp } from "frappe-js-sdk";
-
-const FRAPPE_CMS_URL = "https://cms.buildwithhussain.dev";
+import { FRAPPE_CMS_URL } from "../data/constants";
 
 export function getFrappeApp() {
   const frappe = new FrappeApp(FRAPPE_CMS_URL, {
