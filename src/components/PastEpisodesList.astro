@@ -1,8 +1,8 @@
 ---
 import Link from "./Link.astro";
-import getAllEpisodes from "../utils/episodes";
+import { getBWHEpisodes } from "../utils/episodes";
 
-const episodes = await getAllEpisodes();
+const episodes = await getBWHEpisodes();
 let pastEpisodes = episodes.filter((stream) => {
   // remove future streams
   return stream.stream_date_time <= new Date();

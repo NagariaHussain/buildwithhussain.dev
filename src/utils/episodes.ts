@@ -7,13 +7,14 @@ export interface Episode {
   stream_time: string;
   stream_link: string;
   stream_date_time: Date;
+  series: "#BWHforFOSS" | "Build With Hussain";
 }
 
 export default async function getAllEpisodes(): Promise<Episode[]> {
   const db = getFrappeDB();
 
   let episodes = await db.getDocList("BWH Stream", {
-    fields: ["title", "stream_date", "stream_time", "stream_link"],
+    fields: ["title", "stream_date", "stream_time", "stream_link", "series"],
     orderBy: {
       field: "stream_date",
       order: "asc",
@@ -46,6 +47,27 @@ export default async function getAllEpisodes(): Promise<Episode[]> {
 
     stream.stream_date_time = streamDateTime;
   });
+
+  return episodes;
+}
+
+export async function getBWHforFOSSEpisodes() {
+  const allEpisodes = await getAllEpisodes();
+
+  // series = "#BWHforFOSS"
+  const episodes = allEpisodes.filter(
+    (episode) => episode.series === "#BWHforFOSS"
+  );
+
+  return episodes;
+}
+
+export async function getBWHEpisodes() {
+  const allEpisodes = await getAllEpisodes();
+
+  const episodes = allEpisodes.filter(
+    (episode) => episode.series === "Build With Hussain"
+  );
 
   return episodes;
 }

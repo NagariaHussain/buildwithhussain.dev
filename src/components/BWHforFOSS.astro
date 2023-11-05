@@ -1,0 +1,25 @@
+---
+import Link from "../components/Link.astro";
+import PageSection from "../layouts/PageSection.astro";
+import { getBWHforFOSSEpisodes } from "../utils/episodes";
+import SectionHeading from "./SectionHeading.astro";
+
+const BWHforFOSSEpisodes = await getBWHforFOSSEpisodes();
+
+---
+
+<PageSection>
+  <SectionHeading>
+    #<span class="text-green-500">BWH</span>for<span class="text-green-500">FOSS</span>
+  </SectionHeading>
+
+  <ul class="space-y-8 md:space-y-5 lg:space-y-0 mt-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
+    {
+      BWHforFOSSEpisodes.map((stream) => (
+        <li class="space-y-1 md:space-y-0 lg:max-w-sm">
+          <Link link={stream.stream_link} title={stream.title} />
+        </li>
+      ))
+    }
+  </ul>
+</PageSection>

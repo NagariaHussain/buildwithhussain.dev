@@ -1,7 +1,10 @@
 ---
-import getAllEpisodes from "../utils/episodes";
+import getAllEpisodes, { getBWHEpisodes } from "../utils/episodes";
 
-const episodes = await getAllEpisodes();
+// TODO
+// const episodes = await getAllEpisodes();
+const episodes = await getBWHEpisodes();
+
 let upcomingEpisodes = episodes.filter((stream) => {
   // remove episodes in the past
   return stream.stream_date_time > new Date();
