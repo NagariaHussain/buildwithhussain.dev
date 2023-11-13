@@ -50,14 +50,14 @@ const articleMeta: Meta = {
       </a>
 
       <h1
-        transition:name="blog_title"
+        transition:name={articleDoc.name}
         class="leading-[140%] text-green-800/90 font-black title text-4xl md:text-5xl md:font-bold md:leading-[120%]"
       >
         {articleDoc.title}
       </h1>
 
       <p
-        transition:name="blog_intro"
+        transition:name=`blog_intro${articleDoc.name}`
         class="font-medium text-base text-green-900/80 mb-6 mt-4"
       >
         {articleDoc.blog_intro}
