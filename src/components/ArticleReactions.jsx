@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { FRAPPE_CMS_URL } from "../data/constants";
+
 export default function ArticleReactions({ articleName }) {
   const [reactionCounts, setReactionCounts] = React.useState({
     likes: 0,
@@ -43,7 +45,7 @@ export default function ArticleReactions({ articleName }) {
 
     // fetch initial reaction counts
     fetch(
-      `https://cms.buildwithhussain.dev/api/method/get-reaction-counts?article_name=${articleName}&reaction_type=like`,
+      `${FRAPPE_CMS_URL}/api/method/get-reaction-counts?article_name=${articleName}&reaction_type=like`,
       { mode: "cors" }
     )
       .then((res) => res.json())
@@ -101,7 +103,7 @@ export default function ArticleReactions({ articleName }) {
 }
 
 function incrementReactionInBackend(reaction, articleName) {
-  fetch("https://cms.buildwithhussain.dev/api/method/increment-reaction", {
+  fetch(`${FRAPPE_CMS_URL}/api/method/increment-reaction`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
