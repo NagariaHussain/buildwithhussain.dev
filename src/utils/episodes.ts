@@ -7,7 +7,7 @@ export interface Episode {
   stream_time: string;
   stream_link: string;
   stream_date_time: Date;
-  series: "#BWHforFOSS" | "Build With Hussain";
+  series: "#BWHforFOSS" | "Build With Hussain" | "Let's Learn ERPNext!";
 }
 
 export default async function getAllEpisodes(): Promise<Episode[]> {
