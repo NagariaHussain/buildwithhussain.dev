@@ -3,6 +3,7 @@ import { getFrappeDB } from "./frappe";
 
 export interface Episode {
   title: string;
+  stream_date_raw: string;
   stream_date: string;
   stream_time: string;
   stream_link: string;
@@ -23,6 +24,7 @@ export default async function getAllEpisodes(): Promise<Episode[]> {
   });
 
   episodes.forEach((stream) => {
+    stream.stream_date_raw = stream.stream_date;
     stream.stream_date = format(
       parse(stream.stream_date, "yyyy-MM-dd", new Date()),
       "do MMM, yyyy"
