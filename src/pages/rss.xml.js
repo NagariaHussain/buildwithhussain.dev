@@ -8,7 +8,6 @@ export async function GET(context) {
   const episodes = await getAllEpisodes();
 
   const items = blogs.map((blog) => {
-    console.log(blog.published_on)
     return {
       title: blog.title,
       description: blog.description,
@@ -19,7 +18,6 @@ export async function GET(context) {
   });
 
   episodes.forEach((episode) => {
-    console.log(episode.stream_date)
     items.push({
       title: episode.title,
       link: episode.stream_link,
@@ -27,6 +25,9 @@ export async function GET(context) {
       pubDate: episode.stream_date_raw,
     });
   });
+
+  // sort items by pubDate
+  items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
   return rss({
     title: "Build With Hussain",
