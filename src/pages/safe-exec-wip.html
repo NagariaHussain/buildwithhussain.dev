@@ -1,0 +1,4065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- include pico.css -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+<main >
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+	
+	<figure>
+    <table role="grid" id="myTable">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Value</th>
+        <th>Signature</th>
+        <th>Docs</th>
+        <th>Parent</th>
+    </tr>
+    
+        <tr>
+            <td>json.loads</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(s, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)</td>
+            <td>Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance
+    containing a JSON document) to a Python object.
+
+    ``object_hook`` is an optional function that will be called with the
+    result of any object literal decode (a ``dict``). The return value of
+    ``object_hook`` will be used instead of the ``dict``. This feature
+    can be used to implement custom decoders (e.g. JSON-RPC class hinting).
+
+    ``object_pairs_hook`` is an optional function that will be called with the
+    result of any object literal decoded with an ordered list of pairs.  The
+    return value of ``object_pairs_hook`` will be used instead of the ``dict``.
+    This feature can be used to implement custom decoders.  If ``object_hook``
+    is also defined, the ``object_pairs_hook`` takes priority.
+
+    ``parse_float``, if specified, will be called with the string
+    of every JSON float to be decoded. By default this is equivalent to
+    float(num_str). This can be used to use another datatype or parser
+    for JSON floats (e.g. decimal.Decimal).
+
+    ``parse_int``, if specified, will be called with the string
+    of every JSON int to be decoded. By default this is equivalent to
+    int(num_str). This can be used to use another datatype or parser
+    for JSON integers (e.g. float).
+
+    ``parse_constant``, if specified, will be called with one of the
+    following strings: -Infinity, Infinity, NaN.
+    This can be used to raise an exception if invalid JSON numbers
+    are encountered.
+
+    To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``
+    kwarg; otherwise ``JSONDecoder`` is used.
+    </td>
+            <td>json</td>
+        </tr>
+        
+        <tr>
+            <td>json.dumps</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)</td>
+            <td>Serialize ``obj`` to a JSON formatted ``str``.
+
+    If ``skipkeys`` is true then ``dict`` keys that are not basic types
+    (``str``, ``int``, ``float``, ``bool``, ``None``) will be skipped
+    instead of raising a ``TypeError``.
+
+    If ``ensure_ascii`` is false, then the return value can contain non-ASCII
+    characters if they appear in strings contained in ``obj``. Otherwise, all
+    such characters are escaped in JSON strings.
+
+    If ``check_circular`` is false, then the circular reference check
+    for container types will be skipped and a circular reference will
+    result in an ``RecursionError`` (or worse).
+
+    If ``allow_nan`` is false, then it will be a ``ValueError`` to
+    serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in
+    strict compliance of the JSON specification, instead of using the
+    JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).
+
+    If ``indent`` is a non-negative integer, then JSON array elements and
+    object members will be pretty-printed with that indent level. An indent
+    level of 0 will only insert newlines. ``None`` is the most compact
+    representation.
+
+    If specified, ``separators`` should be an ``(item_separator, key_separator)``
+    tuple.  The default is ``(', ', ': ')`` if *indent* is ``None`` and
+    ``(',', ': ')`` otherwise.  To get the most compact JSON representation,
+    you should specify ``(',', ':')`` to eliminate whitespace.
+
+    ``default(obj)`` is a function that should return a serializable version
+    of obj or raise TypeError. The default simply raises TypeError.
+
+    If *sort_keys* is true (default: ``False``), then the output of
+    dictionaries will be sorted by key.
+
+    To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the
+    ``.default()`` method to serialize additional types), specify it with
+    the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
+
+    </td>
+            <td>json</td>
+        </tr>
+        
+        <tr>
+            <td>as_json</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj: dict | list, indent=1, separators=None, ensure_ascii=True) -> str</td>
+            <td>None</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>dict</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>dict() -> new empty dictionary
+dict(mapping) -> new dictionary initialized from a mapping object's
+    (key, value) pairs
+dict(iterable) -> new dictionary initialized as if via:
+    d = {}
+    for k, v in iterable:
+        d[k] = v
+dict(**kwargs) -> new dictionary initialized with the name=value pairs
+    in the keyword argument list.  For example:  dict(one=1, two=2)</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>log</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(msg: str) -> None</td>
+            <td>Add to `debug_log`
+
+	:param msg: Message.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>_dict</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>dict like object that exposes keys as attributes</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.call</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(function, **kwargs)</td>
+            <td>Executes a whitelisted function or Server Script of type API</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.format</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(*args, **kwargs)</td>
+            <td>Format value with given field properties.
+
+	:param value: Value to be formatted.
+	:param df: (Optional) DocField object with properties `fieldtype`, `options` etc.</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.format_value</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(*args, **kwargs)</td>
+            <td>Format value with given field properties.
+
+	:param value: Value to be formatted.
+	:param df: (Optional) DocField object with properties `fieldtype`, `options` etc.</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.date_format</td>
+            <td>str</td>
+            <td>dd-mm-yyyy</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.time_format</td>
+            <td>str</td>
+            <td>HH:mm:ss</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.format_date</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date, format='long')</td>
+            <td>returns localized date in the form of January 1, 2012</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.bold</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(text)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.copy_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doc: 'Document', ignore_no_copy: bool = True) -> 'Document'</td>
+            <td>No_copy fields also get copied.</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.errprint</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(msg: str) -> None</td>
+            <td>Log error. This is sent back as `exc` in response.
+
+	:param msg: Message.</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.qb</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_meta</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, cached=True)</td>
+            <td>Get `frappe.model.meta.Meta` instance of given doctype name.</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.new_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str, *, parent_doc: Optional[ForwardRef('Document')] = None, parentfield: str | None = None, as_dict: bool = False, **kwargs) -> 'Document'</td>
+            <td>Returns a new document of the given DocType with defaults set.
+
+	:param doctype: DocType of the new document.
+	:param parent_doc: [optional] add to parent document.
+	:param parentfield: [optional] add against this `parentfield`.
+	:param as_dict: [optional] return as dictionary instead of Document.
+	:param kwargs: [optional] You can specify fields as field=value pairs in function call.
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(*args, **kwargs)</td>
+            <td>Return a `frappe.model.document.Document` object of the given type and name.
+
+	:param arg1: DocType name as string **or** document JSON.
+	:param arg2: [optional] Document name as string.
+
+	Examples:
+
+	        # insert a new document
+	        todo = frappe.get_doc({"doctype":"ToDo", "description": "test"})
+	        todo.insert()
+
+	        # open an existing document
+	        todo = frappe.get_doc("ToDo", "TD0001")
+
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_mapped_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(from_doctype, from_docname, table_maps, target_doc=None, postprocess=None, ignore_permissions=False, ignore_child_tables=False, cached=False)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_last_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, filters=None, order_by='creation desc', *, for_update=False)</td>
+            <td>Get last created document of this type.</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_cached_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(*args, **kwargs) -> 'Document'</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_list</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, *args, **kwargs)</td>
+            <td>List database query via `frappe.model.db_query`. Will also check for permissions.
+
+	:param doctype: DocType on which query is to be made.
+	:param fields: List of fields or `*`.
+	:param filters: List of filters (see example).
+	:param order_by: Order By e.g. `modified desc`.
+	:param limit_start: Start results at record #. Default 0.
+	:param limit_page_length: No of records in the page. Default 20.
+
+	Example usage:
+
+	        # simple dict filter
+	        frappe.get_list("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+
+	        # filter as a list of lists
+	        frappe.get_list("ToDo", fields="*", filters = [["modified", ">", "2014-01-01"]])
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_all</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, *args, **kwargs)</td>
+            <td>List database query via `frappe.model.db_query`. Will **not** check for permissions.
+	Parameters are same as `frappe.get_list`
+
+	:param doctype: DocType on which query is to be made.
+	:param fields: List of fields or `*`. Default is: `["name"]`.
+	:param filters: List of filters (see example).
+	:param order_by: Order By e.g. `modified desc`.
+	:param limit_start: Start results at record #. Default 0.
+	:param limit_page_length: No of records in the page. Default 20.
+
+	Example usage:
+
+	        # simple dict filter
+	        frappe.get_all("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+
+	        # filter as a list of lists
+	        frappe.get_all("ToDo", fields=["*"], filters = [["modified", ">", "2014-01-01"]])
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_system_settings</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(key)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.rename_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str | None = None, old: str | None = None, new: str = None, force: bool = False, merge: bool = False, ignore_permissions: bool = False, ignore_if_exists: bool = False, show_alert: bool = True, rebuild_search: bool = True, doc: frappe.model.document.Document | None = None, validate: bool = True) -> str</td>
+            <td>Rename a doc(dt, old) to doc(dt, new) and update all linked fields of type "Link".
+
+	doc: Document object to be renamed.
+	new: New name for the record. If None, and doctype is specified, new name may be automatically generated via before_rename hooks.
+	doctype: DocType of the document. Not required if doc is passed.
+	old: Current name of the document. Not required if doc is passed.
+	force: Allow even if document is not allowed to be renamed.
+	merge: Merge with existing document of new name.
+	ignore_permissions: Ignore user permissions while renaming.
+	ignore_if_exists: Don't raise exception if document with new name already exists. This will quietely overwrite the existing document.
+	show_alert: Display alert if document is renamed successfully.
+	rebuild_search: Rebuild linked doctype search after renaming.
+	validate: Validate before renaming. If False, it is assumed that the caller has already validated.
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.delete_doc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype=None, name=None, force=0, ignore_doctypes=None, for_reload=False, ignore_permissions=False, flags=None, ignore_on_trash=False, ignore_missing=True, delete_permanently=False)</td>
+            <td>
+	Deletes a doc(dt, dn) and validates if it is not submitted and not linked in a live record
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.DATE_FORMAT</td>
+            <td>str</td>
+            <td>%Y-%m-%d</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.TIME_FORMAT</td>
+            <td>str</td>
+            <td>%H:%M:%S.%f</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.DATETIME_FORMAT</td>
+            <td>str</td>
+            <td>%Y-%m-%d %H:%M:%S.%f</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.is_invalid_date_string</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date_string: str) -> bool</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.getdate</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_date: Optional[ForwardRef('DateTimeLikeObject')] = None, parse_day_first: bool = False) -> datetime.date | None</td>
+            <td>
+	Converts string date (yyyy-mm-dd) to datetime.date object.
+	If no input is provided, current date is returned.
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_datetime</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(datetime_str: Optional[ForwardRef('DateTimeLikeObject')] = None) -> datetime.datetime | None</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_timedelta</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(time: str | None = None) -> datetime.timedelta | None</td>
+            <td>Return `datetime.timedelta` object from string value of a
+	valid time format. Returns None if `time` is not a valid format
+
+	Args:
+	        time (str): A valid time representation. This string is parsed
+	        using `dateutil.parser.parse`. Examples of valid inputs are:
+	        '0:0:0', '17:21:00', '2012-01-19 17:21:00'. Checkout
+	        https://dateutil.readthedocs.io/en/stable/parser.html#dateutil.parser.parse
+
+	Returns:
+	        datetime.timedelta: Timedelta object equivalent of the passed `time` string
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.to_timedelta</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(time_str: str | datetime.time) -> datetime.timedelta</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.add_to_date</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date: Union[str, datetime.date, datetime.datetime], years=0, months=0, weeks=0, days=0, hours=0, minutes=0, seconds=0, as_string=False, as_datetime=False) -> Union[str, datetime.date, datetime.datetime]</td>
+            <td>Adds `days` to the given date</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.add_days</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date, days)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.add_months</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date, months)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.add_years</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date, years)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.date_diff</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_ed_date, string_st_date)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.month_diff</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_ed_date, string_st_date)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.time_diff</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_ed_date, string_st_date)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.time_diff_in_seconds</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_ed_date, string_st_date)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.time_diff_in_hours</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_ed_date, string_st_date)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.now_datetime</td>
+            <td>function</td>
+            <td>None</td>
+            <td>()</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_timestamp</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_eta</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(from_time, percent_complete)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_system_timezone</td>
+            <td>function</td>
+            <td>None</td>
+            <td>()</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_datetime_in_timezone</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(time_zone)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.convert_utc_to_system_timezone</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(utc_timestamp)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.now</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>return current datetime as yyyy-mm-dd hh:mm:ss</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.nowdate</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>return current date as yyyy-mm-dd</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.today</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_abbr</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string: str, max_len: int = 2) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.nowtime</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>return current time in hh:mm</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_first_day</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt, d_years: int = 0, d_months: int = 0, as_str: bool = False) -> str | datetime.date</td>
+            <td>
+	Returns the first day of the month for the date specified by date object
+	Also adds `d_years` and `d_months` if specified
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_quarter_start</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt, as_str: bool = False) -> str | datetime.date</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_first_day_of_week</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt, as_str=False)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_year_start</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt, as_str=False)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_last_day_of_week</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_last_day</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt)</td>
+            <td>
+	Returns last day of the month using:
+	`get_first_day(dt, 0, 1) + datetime.timedelta(-1)`
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_quarter_ending</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_time</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(time_str: str) -> datetime.time</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_datetime_str</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(datetime_obj) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_date_str</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date_obj) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_time_str</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(timedelta_obj) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_user_date_format</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>Get the current user date format. The result will be cached.</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_user_time_format</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>Get the current user time format. The result will be cached.</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.format_date</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_date=None, format_string: str | None = None, parse_day_first: bool = False) -> str</td>
+            <td>Converts the given string date to :data:`user_date_format`
+	User format specified in defaults
+
+	Examples:
+
+	* dd-mm-yyyy
+	* mm-dd-yyyy
+	* dd/mm/yyyy
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.formatdate</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(string_date=None, format_string: str | None = None, parse_day_first: bool = False) -> str</td>
+            <td>Converts the given string date to :data:`user_date_format`
+	User format specified in defaults
+
+	Examples:
+
+	* dd-mm-yyyy
+	* mm-dd-yyyy
+	* dd/mm/yyyy
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.format_time</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(time_string=None, format_string: str | None = None) -> str</td>
+            <td>Converts the given string time to :data:`user_time_format`
+	User format specified in defaults
+
+	Examples:
+
+	* HH:mm:ss
+	* HH:mm
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.format_datetime</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(datetime_string: Union[str, datetime.date, datetime.datetime], format_string: str | None = None) -> str</td>
+            <td>Converts the given string time to :data:`user_datetime_format`
+	User format specified in defaults
+
+	Examples:
+
+	* dd-mm-yyyy HH:mm:ss
+	* mm-dd-yyyy HH:mm
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.format_duration</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(seconds, hide_days=False)</td>
+            <td>Converts the given duration value in float(seconds) to duration format
+
+	example: converts 12885 to '3h 34m 45s' where 12885 = seconds in float
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_weekdays</td>
+            <td>function</td>
+            <td>None</td>
+            <td>()</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_weekday</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(datetime: datetime.datetime | None = None) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_timespan_date_range</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(timespan: str) -> tuple[datetime.datetime, datetime.datetime] | None</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.global_date_format</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(date, format='long')</td>
+            <td>returns localized date in the form of January 1, 2012</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.has_common</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(l1: Hashable, l2: Hashable) -> bool</td>
+            <td>Returns truthy value if there are common elements in lists l1 and l2</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.flt</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(s: Union[int, float, str], precision: int | None = None, rounding_method: str | None = None) -> float</td>
+            <td>Convert to float (ignoring commas in string)
+
+	:param s: Number in string or other numeric format.
+	:param precision: optional argument to specify precision for rounding.
+	:returns: Converted number in python float type.
+
+	Returns 0 if input can not be converted to float.
+
+	Examples:
+
+	>>> flt("43.5", precision=0)
+	44
+	>>> flt("42.5", precision=0)
+	42
+	>>> flt("10,500.5666", precision=2)
+	10500.57
+	>>> flt("a")
+	0.0
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.cint</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(s: Union[int, float, str], default: int = 0) -> int</td>
+            <td>Convert to integer
+
+	:param s: Number in string or other numeric format.
+	:returns: Converted number in python integer type.
+
+	Returns default if input can not be converted to integer.
+
+	Examples:
+	>>> cint("100")
+	100
+	>>> cint("a")
+	0
+
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.floor</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(s)</td>
+            <td>
+	A number representing the largest integer less than or equal to the specified number
+
+	Parameters
+	----------
+	s : int or str or Decimal object
+	        The mathematical value to be floored
+
+	Returns
+	-------
+	int
+	        number representing the largest integer less than or equal to the specified number
+
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.ceil</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(s)</td>
+            <td>
+	The smallest integer greater than or equal to the given number
+
+	Parameters
+	----------
+	s : int or str or Decimal object
+	        The mathematical value to be ceiled
+
+	Returns
+	-------
+	int
+	        smallest integer greater than or equal to the given number
+
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.cstr</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(s, encoding='utf-8')</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.rounded</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(num, precision=0, rounding_method=None)</td>
+            <td>Round according to method set in system setting, defaults to banker's rounding</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.remainder</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(numerator: Union[int, float], denominator: Union[int, float], precision: int = 2) -> Union[int, float]</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.safe_div</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(numerator: Union[int, float], denominator: Union[int, float], precision: int = 2) -> float</td>
+            <td>
+	SafeMath division that returns zero when divided by zero.
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.round_based_on_smallest_currency_fraction</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(value, currency, precision=2)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.encode</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, encoding='utf-8')</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.parse_val</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(v)</td>
+            <td>Converts to simple datatypes from SQL query results</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.fmt_money</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(amount: str | float | int | None, precision: int | None = None, currency: str | None = None, format: str | None = None) -> str</td>
+            <td>
+	Convert to string with commas for thousands, millions etc
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_number_format_info</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(format: str) -> tuple[str, str, int]</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.money_in_words</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(number: str | float | int, main_currency: str | None = None, fraction_currency: str | None = None)</td>
+            <td>
+	Returns string in words with currency and fraction currency.
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.in_words</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(integer: int, in_million=True) -> str</td>
+            <td>
+	Returns string in words for the given integer.
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.is_html</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(text: str) -> bool</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.is_image</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(filepath: str) -> bool</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_thumbnail_base64_for_image</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(src)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.image_to_base64</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(image, extn: str) -> bytes</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.pdf_to_base64</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(filename: str) -> bytes | None</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.strip_html</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(text: str) -> str</td>
+            <td>removes anything enclosed in and including <></td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.escape_html</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(text: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.pretty_date</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iso_datetime: datetime.datetime | str) -> str</td>
+            <td>
+	Return a localized string representation of the delta to the current system time.
+
+	For example, "1 hour ago", "2 days ago", "in 5 seconds", etc.
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.comma_or</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(some_list, add_quotes=True)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.comma_and</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(some_list, add_quotes=True)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.comma_sep</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(some_list, pattern, add_quotes=True)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.new_line_sep</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(some_list)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.filter_strip_join</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(some_list: list[str], sep: str) -> list[str]</td>
+            <td>given a list, filter None values, strip spaces and join</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_url</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(uri: str | None = None, full_address: bool = False) -> str</td>
+            <td>get app url from request</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_host_name_from_request</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.url_contains_port</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url: str) -> bool</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_host_name</td>
+            <td>function</td>
+            <td>None</td>
+            <td>() -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_link_to_form</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str, name: str, label: str | None = None) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_link_to_report</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(name: str, label: str | None = None, report_type: str | None = None, doctype: str | None = None, filters: dict | None = None) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_absolute_url</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str, name: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_url_to_form</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str, name: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_url_to_list</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_url_to_report</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(name, report_type: str | None = None, doctype: str | None = None) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_url_to_report_with_filters</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(name, filters, report_type=None, doctype=None)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.evaluate_filters</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doc, filters: dict | list | tuple)</td>
+            <td>Returns true if doc matches filters</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.compare</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(val1: Any, condition: str, val2: Any, fieldtype: str | None = None)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_filter</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str, f: dict | list | tuple, filters_config=None) -> 'frappe._dict'</td>
+            <td>Returns a _dict like
+
+	{
+	        "doctype":
+	        "fieldname":
+	        "operator":
+	        "value":
+	        "fieldtype":
+	}
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.make_filter_tuple</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, key, value)</td>
+            <td>return a filter tuple like [doctype, key, operator, value]</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.make_filter_dict</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(filters)</td>
+            <td>convert this [[doctype, key, operator, value], ..]
+	to this { key: (operator, value), .. }
+	</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.sanitize_column</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(column_name: str) -> None</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.scrub_urls</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(html: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.expand_relative_urls</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(html: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.quoted</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.quote_urls</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(html: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.unique</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(seq: Sequence[ForwardRef('T')]) -> list['T']</td>
+            <td>use this instead of list(set()) to preserve order of the original list.
+	Thanks to Stackoverflow: http://stackoverflow.com/questions/480214/how-do-you-remove-duplicates-from-a-list-in-python-whilst-preserving-order</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.strip</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(val: str, chars: str | None = None) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.to_markdown</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(html: str) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.md_to_html</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(markdown_text: str) -> Optional[ForwardRef('UnicodeWithAttrs')]</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.markdown</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(markdown_text)</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.is_subset</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(list_a: list, list_b: list) -> bool</td>
+            <td>Returns whether list_a is a subset of list_b</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.generate_hash</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(*args, **kwargs) -> str</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.utils.get_user_info_for_avatar</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(user_id: str) -> frappe.utils.data._UserInfo</td>
+            <td>None</td>
+            <td>frappe.utils</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_url</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(uri: str | None = None, full_address: bool = False) -> str</td>
+            <td>get app url from request</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.render_template</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(template, context=None, is_path=None, safe_render=True)</td>
+            <td>Render a template using Jinja
+
+	:param template: path or HTML containing the jinja template
+	:param context: dict of properties to pass to the template
+	:param is_path: (optional) assert that the `template` parameter is a path
+	:param safe_render: (optional) prevent server side scripting via jinja templating
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.msgprint</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(msg: str, title: str | None = None, raise_exception: bool | type[Exception] = False, as_table: bool = False, as_list: bool = False, indicator: Optional[Literal['blue', 'green', 'orange', 'red', 'yellow']] = None, alert: bool = False, primary_action: str = None, is_minimizable: bool = False, wide: bool = False, *, realtime=False) -> None</td>
+            <td>Print a message to the user (via HTTP response).
+	Messages are sent in the `__server_messages` property in the
+	response JSON and shown in a pop-up / modal.
+
+	:param msg: Message.
+	:param title: [optional] Message title. Default: "Message".
+	:param raise_exception: [optional] Raise given exception and show message.
+	:param as_table: [optional] If `msg` is a list of lists, render as HTML table.
+	:param as_list: [optional] If `msg` is a list, render as un-ordered list.
+	:param primary_action: [optional] Bind a primary server/client side action.
+	:param is_minimizable: [optional] Allow users to minimize the modal
+	:param wide: [optional] Show wide modal
+	:param realtime: Publish message immediately using websocket.
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.throw</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(msg: str, exc: type[Exception] = <class 'frappe.exceptions.ValidationError'>, title: str | None = None, is_minimizable: bool = False, wide: bool = False, as_list: bool = False) -> None</td>
+            <td>Throw execption and show message (`msgprint`).
+
+	:param msg: Message.
+	:param exc: Exception class. Default `frappe.ValidationError`</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.sendmail</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(recipients=None, sender='', subject='No Subject', message='No Message', as_markdown=False, delayed=True, reference_doctype=None, reference_name=None, unsubscribe_method=None, unsubscribe_params=None, unsubscribe_message=None, add_unsubscribe_link=1, attachments=None, content=None, doctype=None, name=None, reply_to=None, queue_separately=False, cc=None, bcc=None, message_id=None, in_reply_to=None, send_after=None, expose_recipients=None, send_priority=1, communication=None, retry=1, now=None, read_receipt=None, is_notification=False, inline_images=None, template=None, args=None, header=None, print_letterhead=False, with_container=False, email_read_tracker_url=None) -> Optional[ForwardRef('EmailQueue')]</td>
+            <td>Send email using user's default **Email Account** or global default **Email Account**.
+
+
+	:param recipients: List of recipients.
+	:param sender: Email sender. Default is current user or default outgoing account.
+	:param subject: Email Subject.
+	:param message: (or `content`) Email Content.
+	:param as_markdown: Convert content markdown to HTML.
+	:param delayed: Send via scheduled email sender **Email Queue**. Don't send immediately. Default is true
+	:param send_priority: Priority for Email Queue, default 1.
+	:param reference_doctype: (or `doctype`) Append as communication to this DocType.
+	:param reference_name: (or `name`) Append as communication to this document name.
+	:param unsubscribe_method: Unsubscribe url with options email, doctype, name. e.g. `/api/method/unsubscribe`
+	:param unsubscribe_params: Unsubscribe paramaters to be loaded on the unsubscribe_method [optional] (dict).
+	:param attachments: List of attachments.
+	:param reply_to: Reply-To Email Address.
+	:param message_id: Used for threading. If a reply is received to this email, Message-Id is sent back as In-Reply-To in received email.
+	:param in_reply_to: Used to send the Message-Id of a received email back as In-Reply-To.
+	:param send_after: Send after the given datetime.
+	:param expose_recipients: Display all recipients in the footer message - "This email was sent to"
+	:param communication: Communication link to be set in Email Queue record
+	:param inline_images: List of inline images as {"filename", "filecontent"}. All src properties will be replaced with random Content-Id
+	:param template: Name of html template from templates/emails folder
+	:param args: Arguments for rendering the template
+	:param header: Append header in email
+	:param with_container: Wraps email inside a styled container
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_print</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype=None, name=None, print_format=None, style=None, as_pdf=False, doc=None, output=None, no_letterhead=0, password=None, pdf_options=None, letterhead=None)</td>
+            <td>Get Print Format for given document.
+
+	:param doctype: DocType of document.
+	:param name: Name of document.
+	:param print_format: Print Format name. Default 'Standard',
+	:param style: Print Format style.
+	:param as_pdf: Return as PDF. Default False.
+	:param password: Password to encrypt the pdf with. Default None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.attach_print</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, name, file_name=None, print_format=None, style=None, html=None, doc=None, lang=None, print_letterhead=True, password=None, letterhead=None)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.user</td>
+            <td>str</td>
+            <td>Administrator</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_fullname</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(user=None)</td>
+            <td>get the full name (first name + last name) of the user from User</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_gravatar</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(email: str, default: Literal['mm', '404'] = 'mm') -> str</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.full_name</td>
+            <td>NoneType</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.session.user</td>
+            <td>str</td>
+            <td>Administrator</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.session.csrf_token</td>
+            <td>NoneType</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.make_get_request</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url, **kwargs)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.make_post_request</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url, **kwargs)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.make_put_request</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url, **kwargs)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.make_patch_request</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url, **kwargs)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.make_delete_request</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url, **kwargs)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.socketio_port</td>
+            <td>int</td>
+            <td>9000</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.get_hooks</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(hook=None, default=None, app_name=None)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.enqueue</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(function, **kwargs)</td>
+            <td>
+	Enqueue function to be executed using a background worker
+	Accepts frappe.enqueue params like job_name, queue, timeout, etc.
+	in addition to params to be passed to function
+
+	:param function: whitelisted function or API Method set in Server Script
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.sanitize_html</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(html, linkify=False)</td>
+            <td>
+	Sanitize HTML tags, attributes and style to prevent XSS attacks
+	Based on bleach clean, bleach whitelist and html5lib's Sanitizer defaults
+
+	Does not sanitize JSON, as it could lead to future problems
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.log_error</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(title=None, message=None, reference_doctype=None, reference_name=None, *, defer_insert=False)</td>
+            <td>Log error to Error Log</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.log</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(msg: str) -> None</td>
+            <td>Add to `debug_log`
+
+	:param msg: Message.</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.get_list</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, *args, **kwargs)</td>
+            <td>List database query via `frappe.model.db_query`. Will also check for permissions.
+
+	:param doctype: DocType on which query is to be made.
+	:param fields: List of fields or `*`.
+	:param filters: List of filters (see example).
+	:param order_by: Order By e.g. `modified desc`.
+	:param limit_start: Start results at record #. Default 0.
+	:param limit_page_length: No of records in the page. Default 20.
+
+	Example usage:
+
+	        # simple dict filter
+	        frappe.get_list("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+
+	        # filter as a list of lists
+	        frappe.get_list("ToDo", fields="*", filters = [["modified", ">", "2014-01-01"]])
+	</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.get_all</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, *args, **kwargs)</td>
+            <td>List database query via `frappe.model.db_query`. Will **not** check for permissions.
+	Parameters are same as `frappe.get_list`
+
+	:param doctype: DocType on which query is to be made.
+	:param fields: List of fields or `*`. Default is: `["name"]`.
+	:param filters: List of filters (see example).
+	:param order_by: Order By e.g. `modified desc`.
+	:param limit_start: Start results at record #. Default 0.
+	:param limit_page_length: No of records in the page. Default 20.
+
+	Example usage:
+
+	        # simple dict filter
+	        frappe.get_all("ToDo", fields=["name", "description"], filters = {"owner":"test@example.com"})
+
+	        # filter as a list of lists
+	        frappe.get_all("ToDo", fields=["*"], filters = [["modified", ">", "2014-01-01"]])
+	</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.get_value</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, filters=None, fieldname='name', ignore=None, as_dict=False, debug=False, order_by='KEEP_DEFAULT_ORDERING', cache=False, for_update=False, *, run=True, pluck=False, distinct=False)</td>
+            <td>Returns a document property or list of properties.
+
+		:param doctype: DocType name.
+		:param filters: Filters like `{"x":"y"}` or name of the document. `None` if Single DocType.
+		:param fieldname: Column name.
+		:param ignore: Don't raise exception if table, column is missing.
+		:param as_dict: Return values as dict.
+		:param debug: Print query in error log.
+		:param order_by: Column to order by
+
+		Example:
+
+		        # return first customer starting with a
+		        frappe.db.get_value("Customer", {"name": ("like a%")})
+
+		        # return last login of **User** `test@example.com`
+		        frappe.db.get_value("User", "test@example.com", "last_login")
+
+		        last_login, last_ip = frappe.db.get_value("User", "test@example.com",
+		                ["last_login", "last_ip"])
+
+		        # returns default date_format
+		        frappe.db.get_value("System Settings", None, "date_format")
+		</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.set_value</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt, dn, field, val=None, modified=None, modified_by=None, update_modified=True, debug=False)</td>
+            <td>Set a single value in the database, do not call the ORM triggers
+		but update the modified timestamp (unless specified not to).
+
+		**Warning:** this function will not call Document events and should be avoided in normal cases.
+
+		:param dt: DocType name.
+		:param dn: Document name for updating single record or filters for updating many records.
+		:param field: Property / field name or dictionary of values to be updated
+		:param value: Value to be updated.
+		:param modified: Use this as the `modified` timestamp.
+		:param modified_by: Set this user as `modified_by`.
+		:param update_modified: default True. Set as false, if you don't want to update the timestamp.
+		:param debug: Print the query in the developer / js console.
+		</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.get_single_value</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype, fieldname, cache=True)</td>
+            <td>Get property of Single DocType. Cache locally by default
+
+		:param doctype: DocType of the single object whose value is requested
+		:param fieldname: `fieldname` of the property whose value is requested
+
+		Example:
+
+		        # Get the default value of the company from the Global Defaults doctype.
+		        company = frappe.db.get_single_value('Global Defaults', 'default_company')
+		</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.get_default</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(key, parent='__default')</td>
+            <td>Returns default value as a list if multiple or single</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.exists</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt, dn=None, cache=False)</td>
+            <td>Return the document name of a matching document, or None.
+
+		Note: `cache` only works if `dt` and `dn` are of type `str`.
+
+		## Examples
+
+		Pass doctype and docname (only in this case we can cache the result)
+
+		```
+		exists("User", "jane@example.org", cache=True)
+		```
+
+		Pass a dict of filters including the `"doctype"` key:
+
+		```
+		exists({"doctype": "User", "full_name": "Jane Doe"})
+		```
+
+		Pass the doctype and a dict of filters:
+
+		```
+		exists("User", {"full_name": "Jane Doe"})
+		```
+		</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.count</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(dt, filters=None, debug=False, cache=False, distinct: bool = True)</td>
+            <td>Returns `COUNT(*)` for given DocType and filters.</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.escape</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(s, percent=True)</td>
+            <td>Excape quotes and percent in given string.</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.sql</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(query, *args, **kwargs)</td>
+            <td>a wrapper for frappe.db.sql to allow reads</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.commit</td>
+            <td>function</td>
+            <td>None</td>
+            <td>()</td>
+            <td>Commit current transaction. Calls SQL `COMMIT`.</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.rollback</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(*, save_point=None)</td>
+            <td>`ROLLBACK` current transaction. Optionally rollback to a known save_point.</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.after_commit</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(func: collections.abc.Callable) -> None</td>
+            <td>Manage callbacks.
+
+	```
+	# Capture callacks
+	callbacks = CallbackManager()
+
+	# Put a function call in queue
+	callbacks.add(func)
+
+	# Run all pending functions in queue
+	callbacks.run()
+
+	# Reset queue
+	callbacks.reset()
+	```
+
+	Example usage: frappe.db.after_commit
+	</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.before_commit</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(func: collections.abc.Callable) -> None</td>
+            <td>Manage callbacks.
+
+	```
+	# Capture callacks
+	callbacks = CallbackManager()
+
+	# Put a function call in queue
+	callbacks.add(func)
+
+	# Run all pending functions in queue
+	callbacks.run()
+
+	# Reset queue
+	callbacks.reset()
+	```
+
+	Example usage: frappe.db.after_commit
+	</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.after_rollback</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(func: collections.abc.Callable) -> None</td>
+            <td>Manage callbacks.
+
+	```
+	# Capture callacks
+	callbacks = CallbackManager()
+
+	# Put a function call in queue
+	callbacks.add(func)
+
+	# Run all pending functions in queue
+	callbacks.run()
+
+	# Reset queue
+	callbacks.reset()
+	```
+
+	Example usage: frappe.db.after_commit
+	</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.before_rollback</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(func: collections.abc.Callable) -> None</td>
+            <td>Manage callbacks.
+
+	```
+	# Capture callacks
+	callbacks = CallbackManager()
+
+	# Put a function call in queue
+	callbacks.add(func)
+
+	# Run all pending functions in queue
+	callbacks.run()
+
+	# Reset queue
+	callbacks.reset()
+	```
+
+	Example usage: frappe.db.after_commit
+	</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.db.add_index</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(doctype: str, fields: list, index_name: str = None)</td>
+            <td>Creates an index with given fields if not already created.
+		Index name will be `fieldname1_fieldname2_index`</td>
+            <td>frappe.db</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.lang</td>
+            <td>str</td>
+            <td>en</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.NotFound</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(description: 'str | None' = None, response: 'Response | None' = None) -> 'None'</td>
+            <td>*404* `Not Found`
+
+    Raise if a resource does not exist and never existed.
+    </td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.SiteNotSpecifiedError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(*args, **kwargs)</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.UrlSchemeNotSupported</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.ValidationError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.FrappeTypeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.AuthenticationError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.SessionExpired</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.PermissionError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.DoesNotExistError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.PageDoesNotExistError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.NameError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.OutgoingEmailError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.SessionStopped</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.UnsupportedMediaType</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.RequestToken</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.Redirect</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.CSRFTokenError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.TooManyRequestsError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.ImproperDBConfigurationError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(reason, msg=None)</td>
+            <td>
+	Used when frappe detects that database or tables are not properly
+	configured
+	</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.DuplicateEntryError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.DataError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.UnknownDomainError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.MappingMismatchError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidStatusError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.MandatoryError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.NonNegativeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidSignatureError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.RateLimitExceededError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.CannotChangeConstantError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.CharacterLengthExceededError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.UpdateAfterSubmitError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.LinkValidationError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.CancelledLinkError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.DocstatusTransitionError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.TimestampMismatchError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.EmptyTableError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.LinkExistsError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidEmailAddressError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidNameError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidPhoneNumberError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.TemplateNotFoundError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.UniqueValidationError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.AppNotInstalledError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.IncorrectSitePath</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(description: 'str | None' = None, response: 'Response | None' = None) -> 'None'</td>
+            <td>None</td>
+            <td>frappe</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.ImplicitCommitError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.RetryBackgroundJobError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.DocumentLockedError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.CircularLinkingError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.SecurityException</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidColumnName</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.IncompatibleApp</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidDates</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.DataTooLongException</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.FileAlreadyAttachedException</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.DocumentAlreadyRestored</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.AttachmentLimitReached</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.QueryTimeoutError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.QueryDeadlockError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InReadOnlyMode</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.SessionBootFailed</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.PrintFormatError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.TooManyWritesError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidAuthorizationHeader</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidAuthorizationPrefix</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidAuthorizationToken</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidDatabaseFile</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.ExecutableNotFound</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidRoundingMethod</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidRemoteException</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.LinkExpired</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.InvalidKeyError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>frappe.response.docs</td>
+            <td>list</td>
+            <td>[]</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>FrappeClient</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url, username=None, password=None, verify=True, api_key=None, api_secret=None, frappe_authorization_source=None)</td>
+            <td>None</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>style.border_color</td>
+            <td>str</td>
+            <td>#d1d8dd</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>get_toc</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(route, url_prefix=None, app=None)</td>
+            <td>Insert full index (table of contents) for {index} tag</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>get_next_link</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(route, url_prefix=None, app=None)</td>
+            <td>None</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(msg: str, lang: str | None = None, context: str | None = None) -> str</td>
+            <td>Returns translated string in current lang, if exists.
+	Usage:
+	        _('Change')
+	        _('Change', context='Coins')
+	</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>scrub</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(txt: str) -> str</td>
+            <td>Returns sluggified string. e.g. `Sales Order` becomes `sales_order`.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>guess_mimetype</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(url, strict=True)</td>
+            <td>Guess the type of a file based on its URL.
+
+    Return value is a tuple (type, encoding) where type is None if the
+    type can't be guessed (no or unknown suffix) or a string of the
+    form type/subtype, usable for a MIME Content-type header; and
+    encoding is None for no encoding or the name of the program used
+    to encode (e.g. compress or gzip).  The mappings are table
+    driven.  Encoding suffixes are case sensitive; type suffixes are
+    first tried case sensitive, then case insensitive.
+
+    The suffixes .tgz, .taz and .tz (case sensitive!) are all mapped
+    to ".tar.gz".  (This is table-driven too, using the dictionary
+    suffix_map).
+
+    Optional `strict' argument when false adds a bunch of commonly found, but
+    non-standard types.
+    </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>html2text</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(html, strip_links=False, wrap=True)</td>
+            <td>None</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>dev_server</td>
+            <td>int</td>
+            <td>0</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>run_script</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(script, **kwargs)</td>
+            <td>run another server script</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>is_job_queued</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(job_name, queue='default')</td>
+            <td>
+	:param job_name: used to identify a queued job, usually dotted path to function
+	:param queue: should be either long, default or short
+	</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>get_visible_columns</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(data, table_meta, df)</td>
+            <td>Returns list of visible columns based on print_hide and if all columns have value.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.__build_class__</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>__build_class__(func, name, /, *bases, [metaclass], **kwds) -> class
+
+Internal helper function used by the class statement.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.None</td>
+            <td>NoneType</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.False</td>
+            <td>bool</td>
+            <td>False</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.True</td>
+            <td>bool</td>
+            <td>True</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.abs</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(x, /)</td>
+            <td>Return the absolute value of the argument.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.bool</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>bool(x) -> bool
+
+Returns True when the argument x is true, False otherwise.
+The builtins True and False are the only two instances of the class bool.
+The class bool is a subclass of the class int, and cannot be subclassed.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.bytes</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>bytes(iterable_of_ints) -> bytes
+bytes(string, encoding[, errors]) -> bytes
+bytes(bytes_or_buffer) -> immutable copy of bytes_or_buffer
+bytes(int) -> bytes object of size given by the parameter initialized with null bytes
+bytes() -> empty bytes object
+
+Construct an immutable array of bytes from:
+  - an iterable yielding integers in range(256)
+  - a text string encoded using the specified encoding
+  - any object implementing the buffer API.
+  - an integer</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.callable</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, /)</td>
+            <td>Return whether the object is callable (i.e., some kind of function).
+
+Note that classes are callable, as are instances of classes with a
+__call__() method.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.chr</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(i, /)</td>
+            <td>Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.complex</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(real=0, imag=0)</td>
+            <td>Create a complex number from a real part and an optional imaginary part.
+
+This is equivalent to (real + imag*1j) where imag defaults to 0.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.divmod</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(x, y, /)</td>
+            <td>Return the tuple (x//y, x%y).  Invariant: div*y + mod == x.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.float</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(x=0, /)</td>
+            <td>Convert a string or number to a floating point number, if possible.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.hash</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, /)</td>
+            <td>Return the hash value for the given object.
+
+Two objects that compare equal must also have the same hash value, but the
+reverse is not necessarily true.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.hex</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(number, /)</td>
+            <td>Return the hexadecimal representation of an integer.
+
+   >>> hex(12648430)
+   '0xc0ffee'</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.id</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, /)</td>
+            <td>Return the identity of an object.
+
+This is guaranteed to be unique among simultaneously existing objects.
+(CPython uses the object's memory address.)</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.int</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>int([x]) -> integer
+int(x, base=10) -> integer
+
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+>>> int('0b100', base=0)
+4</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.isinstance</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, class_or_tuple, /)</td>
+            <td>Return whether an object is an instance of a class or of a subclass thereof.
+
+A tuple, as in ``isinstance(x, (A, B, ...))``, may be given as the target to
+check against. This is equivalent to ``isinstance(x, A) or isinstance(x, B)
+or ...`` etc.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.issubclass</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(cls, class_or_tuple, /)</td>
+            <td>Return whether 'cls' is derived from another class or is the same class.
+
+A tuple, as in ``issubclass(x, (A, B, ...))``, may be given as the target to
+check against. This is equivalent to ``issubclass(x, A) or issubclass(x, B)
+or ...``.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.len</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, /)</td>
+            <td>Return the number of items in a container.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.oct</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(number, /)</td>
+            <td>Return the octal representation of an integer.
+
+   >>> oct(342391)
+   '0o1234567'</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ord</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(c, /)</td>
+            <td>Return the Unicode code point for a one-character string.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.pow</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(base, exp, mod=None)</td>
+            <td>Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
+
+Some types, such as ints, are able to use a more efficient algorithm when
+invoked using the three argument form.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.range</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>range(stop) -> range object
+range(start, stop[, step]) -> range object
+
+Return an object that produces a sequence of integers from start (inclusive)
+to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
+start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
+These are exactly the valid indices for a list of 4 elements.
+When step is given, it specifies the increment (or decrement).</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.repr</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, /)</td>
+            <td>Return the canonical string representation of the object.
+
+For many object types, including most builtins, eval(repr(obj)) == obj.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.round</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(number, ndigits=None)</td>
+            <td>Round a number to a given precision in decimal digits.
+
+The return value is an integer if ndigits is omitted or None.  Otherwise
+the return value has the same type as the number.  ndigits may be negative.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.slice</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>slice(stop)
+slice(start, stop[, step])
+
+Create a slice object.  This is used for extended slicing (e.g. a[0:10:2]).</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.sorted</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable, /, *, key=None, reverse=False)</td>
+            <td>Return a new list containing all items from the iterable in ascending order.
+
+A custom key function can be supplied to customize the sort order, and the
+reverse flag can be set to request the result in descending order.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.str</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.tuple</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable=(), /)</td>
+            <td>Built-in immutable sequence.
+
+If no argument is given, the constructor returns an empty tuple.
+If iterable is specified the tuple is initialized from iterable's items.
+
+If the argument is a tuple, the return value is the same object.</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.zip</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>zip(*iterables, strict=False) --> Yield tuples until an input is exhausted.
+
+   >>> list(zip('abcdefg', range(3), range(4)))
+   [('a', 0, 0), ('b', 1, 1), ('c', 2, 2)]
+
+The zip object yields n-length tuples, where n is the number of iterables
+passed as positional arguments to zip().  The i-th element in every tuple
+comes from the i-th iterable argument to zip().  This continues until the
+shortest argument is exhausted.
+
+If strict is true and one of the arguments is exhausted before the others,
+raise a ValueError.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ArithmeticError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for arithmetic errors.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.AssertionError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Assertion failed.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.AttributeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Attribute not found.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.BaseException</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Common base class for all exceptions</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.BufferError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Buffer error.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.BytesWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about bytes and buffer related problems, mostly
+related to conversion from str or comparing to str.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.DeprecationWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about deprecated features.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.EOFError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Read beyond end of file.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.EnvironmentError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for I/O related errors.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.Exception</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Common base class for all non-exit exceptions.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.FloatingPointError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Floating point operation failed.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.FutureWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about constructs that will change semantically
+in the future.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.GeneratorExit</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Request that a generator exit.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.IOError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for I/O related errors.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ImportError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Import can't find module, or can't find name in module.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ImportWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about probable mistakes in module imports</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.IndentationError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Improper indentation.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.IndexError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Sequence index out of range.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.KeyError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Mapping key not found.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.KeyboardInterrupt</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Program interrupted by user.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.LookupError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for lookup errors.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.MemoryError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Out of memory.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.NameError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Name not found globally.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.NotImplementedError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Method or function hasn't been implemented yet.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.OSError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for I/O related errors.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.OverflowError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Result too large to be represented.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.PendingDeprecationWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about features which will be deprecated
+in the future.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ReferenceError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Weak ref proxy used after referent went away.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.RuntimeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Unspecified run-time error.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.RuntimeWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about dubious runtime behavior.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.StopIteration</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Signal the end from iterator.__next__().</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.SyntaxError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Invalid syntax.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.SyntaxWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about dubious syntax.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.SystemError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Internal error in the Python interpreter.
+
+Please report this to the Python maintainer, along with the traceback,
+the Python version, and the hardware/OS platform and version.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.SystemExit</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Request to exit from the interpreter.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.TabError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Improper mixture of spaces and tabs.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.TypeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Inappropriate argument type.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.UnboundLocalError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Local name referenced but not bound to a value.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.UnicodeDecodeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Unicode decoding error.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.UnicodeEncodeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Unicode encoding error.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.UnicodeError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Unicode related error.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.UnicodeTranslateError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Unicode translation error.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.UnicodeWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings about Unicode related problems, mostly
+related to conversion problems.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.UserWarning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warnings generated by user code.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ValueError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Inappropriate argument value (of correct type).</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.Warning</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Base class for warning categories.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ZeroDivisionError</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Second argument to a division or modulo operation was zero.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.ExceptionGroup</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.setattr</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(object, name, value)</td>
+            <td>None</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__.delattr</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(object, name)</td>
+            <td>None</td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>__builtins__._getattr_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(object, name, default=None, getattr=<built-in function getattr>)</td>
+            <td>Getattr implementation which prevents using format on string objects.
+
+    format() is considered harmful:
+    http://lucumr.pocoo.org/2016/12/29/careful-with-str-format/
+
+    </td>
+            <td>__builtins__</td>
+        </tr>
+        
+        <tr>
+            <td>_write_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj)</td>
+            <td>None</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>_getitem_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, key)</td>
+            <td>None</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>_getattr_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(object, name, default=None)</td>
+            <td>None</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>_print_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(_getattr_=None)</td>
+            <td>Collect written text, and return it when called.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>_getiter_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>iter(iterable) -> iterator
+iter(callable, sentinel) -> iterator
+
+Get an iterator from an object.  In the first form, the argument must
+supply its own iterator, or be a sequence.
+In the second form, the callable is called until it returns the sentinel.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>_iter_unpack_sequence_</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(it, spec, _getiter_)</td>
+            <td>Protect sequence unpacking of targets in a 'for loop'.
+
+    The target of a for loop could be a sequence.
+    For example "for a, b in it"
+    => Each object from the iterator needs guarded sequence unpacking.
+    </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>abs</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(x, /)</td>
+            <td>Return the absolute value of the argument.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>all</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable, /)</td>
+            <td>Return True if bool(x) is True for all values x in the iterable.
+
+If the iterable is empty, return True.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>any</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable, /)</td>
+            <td>Return True if bool(x) is True for any x in the iterable.
+
+If the iterable is empty, return False.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>bool</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>bool(x) -> bool
+
+Returns True when the argument x is true, False otherwise.
+The builtins True and False are the only two instances of the class bool.
+The class bool is a subclass of the class int, and cannot be subclassed.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>enumerate</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable, start=0)</td>
+            <td>Return an enumerate object.
+
+  iterable
+    an object supporting iteration
+
+The enumerate object yields pairs containing a count (from start, which
+defaults to zero) and a value yielded by the iterable argument.
+
+enumerate is useful for obtaining an indexed list:
+    (0, seq[0]), (1, seq[1]), (2, seq[2]), ...</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>isinstance</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(obj, class_or_tuple, /)</td>
+            <td>Return whether an object is an instance of a class or of a subclass thereof.
+
+A tuple, as in ``isinstance(x, (A, B, ...))``, may be given as the target to
+check against. This is equivalent to ``isinstance(x, A) or isinstance(x, B)
+or ...`` etc.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>issubclass</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(cls, class_or_tuple, /)</td>
+            <td>Return whether 'cls' is derived from another class or is the same class.
+
+A tuple, as in ``issubclass(x, (A, B, ...))``, may be given as the target to
+check against. This is equivalent to ``issubclass(x, A) or issubclass(x, B)
+or ...``.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>list</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable=(), /)</td>
+            <td>Built-in mutable sequence.
+
+If no argument is given, the constructor creates a new empty list.
+The argument must be an iterable if specified.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>max</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>max(iterable, *[, default=obj, key=func]) -> value
+max(arg1, arg2, *args, *[, key=func]) -> value
+
+With a single iterable argument, return its biggest item. The
+default keyword-only argument specifies an object to return if
+the provided iterable is empty.
+With two or more arguments, return the largest argument.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>min</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>min(iterable, *[, default=obj, key=func]) -> value
+min(arg1, arg2, *args, *[, key=func]) -> value
+
+With a single iterable argument, return its smallest item. The
+default keyword-only argument specifies an object to return if
+the provided iterable is empty.
+With two or more arguments, return the smallest argument.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>range</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>range(stop) -> range object
+range(start, stop[, step]) -> range object
+
+Return an object that produces a sequence of integers from start (inclusive)
+to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
+start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
+These are exactly the valid indices for a list of 4 elements.
+When step is given, it specifies the increment (or decrement).</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>set</td>
+            <td>function</td>
+            <td>None</td>
+            <td>None</td>
+            <td>set() -> new empty set object
+set(iterable) -> new set object
+
+Build an unordered collection of unique elements.</td>
+            <td>None</td>
+        </tr>
+        
+        <tr>
+            <td>sorted</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable, /, *, key=None, reverse=False)</td>
+            <td>Return a new list containing all items from the iterable in ascending order.
+
+A custom key function can be supplied to customize the sort order, and the
+reverse flag can be set to request the result in descending order.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>sum</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable, /, start=0)</td>
+            <td>Return the sum of a 'start' value (default: 0) plus an iterable of numbers
+
+When the iterable is empty, return the start value.
+This function is intended specifically for use with numeric values and may
+reject non-numeric types.</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>tuple</td>
+            <td>function</td>
+            <td>None</td>
+            <td>(iterable=(), /)</td>
+            <td>Built-in immutable sequence.
+
+If no argument is given, the constructor returns an empty tuple.
+If iterable is specified the tuple is initialized from iterable's items.
+
+If the argument is a tuple, the return value is the same object.</td>
+            <td></td>
+        </tr>
+        </table>
+		</figure>
+
+	</main>
+    <script>
+    function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows
+    for (i = 1; i < tr.length; i++) {
+        // Hide the row initially.
+        tr[i].style.display = "none";
+    
+        td = tr[i].getElementsByTagName("td");
+        for (var j = 0; j < td.length; j++) {
+        cell = tr[i].getElementsByTagName("td")[j];
+        if (cell) {
+            if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+            break;
+            } 
+        }
+        }
+    }
+    }
+    </script>
+</body>
+</html>
