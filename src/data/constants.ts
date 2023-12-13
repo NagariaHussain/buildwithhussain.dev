@@ -32,7 +32,7 @@ export const frappeverseLinks = {
     },
     {
       title: "The Missing Frappe Manual",
-      link: "https://tmfm.buildwithhussain.dev",
+      link: "https://manual.buildwithhussain.dev",
     },
     {
       title: "Bench CLI Cheatsheet",
