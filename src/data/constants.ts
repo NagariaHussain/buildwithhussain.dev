@@ -17,6 +17,10 @@ export const beginnerResources = [
     title: "Introduction to JavaScript & Client Scripting",
     link: "https://www.youtube.com/live/vqVd2cId1ys?si=u7aWeLJ4Ov5EdC9q",
   },
+  {
+    title: "Introduction to SQL & Query Reports",
+    link: "https://youtube.com/live/9BT6zATsl1k",
+  },
 ];
 
 export const frappeverseLinks = {
