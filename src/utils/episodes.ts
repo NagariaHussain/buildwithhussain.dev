@@ -73,3 +73,14 @@ export async function getBWHEpisodes() {
 
   return episodes;
 }
+
+export async function getLLEEpisodes() {
+  const allEpisodes = await getAllEpisodes();
+
+  const episodes = allEpisodes.filter(
+    (episode) => episode.series === "Let's Learn ERPNext!"
+  );
+
+  return episodes;
+}
+
