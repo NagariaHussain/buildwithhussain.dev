@@ -45,6 +45,8 @@ I use the Apple MacBook Pro 16" (32GB RAM, M1 Pro) as my daily driver. All the s
 
 ### Streaming Hardware
 
+1. [Sony Digital Vlog Camera ZV 1](https://amzn.in/d/crk3UK4)
+
 1. [Blue Yeti Microphone](https://www.amazon.in/Blue-Yeti-USB-Microphone-Midnight/dp/B01LY6Z2M6) directly plugged into my MacBook with [Tonor Microphone Arm Stand](https://www.amazon.in/gp/product/B082W4B7SX)
 
 1. [Wacom Intuos CTL-6100/K0-CX](https://www.amazon.in/gp/product/B07BFH82V7) for that doodling and diagraming!
