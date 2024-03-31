@@ -1,7 +1,7 @@
 import { Html } from "@react-email/html";
 import { Font } from "@react-email/font";
 import { Tailwind } from "@react-email/tailwind";
-import { Container, Body, Head, Link } from "@react-email/components";
+import { Container, Body, Head, Link, Img } from "@react-email/components";
 
 const EmailFooter = () => (
   <div className="my-10">
@@ -10,12 +10,28 @@ const EmailFooter = () => (
       <span className="text-2xl">✌🏼</span>
     </p>
 
-    <Link
-      href="https://buildwithhussain.dev"
-      class="text-green-700 underline underline-offset-2"
-    >
-      buildwithhussain.dev
-    </Link>
+    <div class="mt-4">
+      <Link
+        href="https://buildwithhussain.dev"
+        class="text-green-700 underline underline-offset-2 mr-3"
+      >
+        buildwithhussain.dev
+      </Link>
+
+      <Link
+        href="https://platform.buildwithhussain.dev/unsubscribe-from-bwh-emails/new"
+        class="text-green-700 underline underline-offset-2"
+      >
+        Unsubscribe
+      </Link>
+
+      <div class="mt-4">
+        <Link href="https://frappe.io/products">
+          <Img class="h-12 mt-2" src="https://platform.buildwithhussain.dev/files/pbfm.png" alt="powered by Frappe Mail badge" />
+        </Link>
+      </div>
+
+      </div>
   </div>
 );
 
@@ -59,12 +75,9 @@ export const MailBase = ({ children }) => {
           },
         }}
       >
-        <Body className="bg-green-50 text-green-900">
-          <Container className="font-sans px-4">
-            {children}
-
-            <EmailFooter />
-          </Container>
+        <Body className="bg-green-50 text-green-900 p-3">
+          {children}
+          <EmailFooter />
         </Body>
       </Tailwind>
     </Html>
