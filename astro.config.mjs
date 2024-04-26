@@ -7,7 +7,7 @@ import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://buildwithhussain.dev",
+  site: "https://bwh.live",
   integrations: [tailwind(), react(), sitemap(), expressiveCode()],
   markdown: {
     shikiConfig: {

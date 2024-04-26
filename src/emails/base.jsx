@@ -12,10 +12,10 @@ const EmailFooter = () => (
 
     <div class="mt-4">
       <Link
-        href="https://buildwithhussain.dev"
+        href="https://bwh.live"
         class="text-green-700 underline underline-offset-2 mr-3"
       >
-        buildwithhussain.dev
+        bwh.live
       </Link>
 
       <Link
