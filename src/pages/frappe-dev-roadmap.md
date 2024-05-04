@@ -57,7 +57,7 @@ This section contains hand-picked resources from a variety of topics related to 
 
 ### Linux
 
-1. Good resource for getting started for the impatient: <https://linuxjourney.com> (by Rutwik)
+1. Good resource for getting started for the impatient: <https://linuxjourney.com> (suggested by Rutwik)
 
 ### Python
 
@@ -110,11 +110,11 @@ This section contains hand-picked resources from a variety of topics related to 
 
 ### Databases
 
-1. [CMU Intro to Database Systems](https://youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g). "It's not very theoretical, goes in depth on real life database implementations." (by Ankush)
+1. [CMU Intro to Database Systems](https://youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g). It's not very theoretical, goes in depth on real life database implementations.
 
 ### Clean Code
 
-1. [Clean Code Lectures by Uncle Bob](https://youtube.com/playlist?list=PLmmYSbUCWJ4x1GO839azG_BBw8rkh-zOj&si=ncqStAWkzK-YfS1V). Gold material with some really good lessons! (by yours truly / Hussain)
+1. [Clean Code Lectures by Uncle Bob](https://youtube.com/playlist?list=PLmmYSbUCWJ4x1GO839azG_BBw8rkh-zOj&si=ncqStAWkzK-YfS1V). Gold material with some really good lessons!
 
 #### Resource Credits
 
