@@ -65,43 +65,48 @@ This section contains hand-picked resources from a variety of topics related to 
 
 #### Intermediate
 
-1. Python object model and some intermediate topics - <https://www.youtube.com/watch?v=cKPlPJyQrt4>
+1. [Python object model and some intermediate topics](https://www.youtube.com/watch?v=cKPlPJyQrt4)
 
-1. Collections module - <https://docs.python.org/3/library/collections.html>
+1. [Collections module](https://docs.python.org/3/library/collections.html)
 
-1. Descriptors - <https://docs.python.org/3/howto/descriptor.html>
+1. [Descriptors](https://docs.python.org/3/howto/descriptor.html)
 
-1. Python data model - <https://docs.python.org/3/reference/datamodel.html>
+1. [Python data model](https://docs.python.org/3/reference/datamodel.html)
 
-1. Execution model - <https://docs.python.org/3/reference/executionmodel.html>
+1. [Execution model](https://docs.python.org/3/reference/executionmodel.html)
 
-1. How the import system works - <https://docs.python.org/3/reference/import.html>, <https://realpython.com/python-import/>
+1. How the import system works
+    1. [Official Docs](https://docs.python.org/3/reference/import.html)
+    2. [Real Python](https://realpython.com/python-import/)
 
 #### Advanced
 
-1. Python Garbage collector design - <https://devguide.python.org/internals/garbage-collector/>
+1. [Python Garbage collector design](https://devguide.python.org/internals/garbage-collector/)
 
-1. Memory management in Python - <https://www.youtube.com/watch?v=F6u5rhUQ6dU>
+1. [Memory management in Python](https://www.youtube.com/watch?v=F6u5rhUQ6dU)
 
-1. Global Interpreter Lock - <https://www.youtube.com/watch?v=Obt-vMVdM8s>, <https://www.youtube.com/watch?v=6g79qGQo2-Q>, <https://realpython.com/python-gil/>
+1. Global Interpreter Lock
+    1. <https://www.youtube.com/watch?v=Obt-vMVdM8s>
+    1. <https://www.youtube.com/watch?v=6g79qGQo2-Q>
+    1. <https://realpython.com/python-gil/>
 
-1. Concurrency from ground up - <https://www.youtube.com/watch?v=MCs5OvhV9S4>
+1. [Concurrency from ground up](https://www.youtube.com/watch?v=MCs5OvhV9S4)
 
-1. Time complexity of various python operations - <https://wiki.python.org/moin/TimeComplexity>
+1. [Time complexity of various python operations](https://wiki.python.org/moin/TimeComplexity)
 
-1. Mighty python dictionary - <https://www.youtube.com/watch?v=C4Kc8xzcA68>
+1. [Mighty python dictionary](https://www.youtube.com/watch?v=C4Kc8xzcA68)
 
-1. Build your own async - <https://www.youtube.com/watch?v=Y4Gt3Xjd7G8>
+1. [Build your own async](https://www.youtube.com/watch?v=Y4Gt3Xjd7G8)
 
 ### MySQL
 
-1. MySQL for developers - <https://planetscale.com/learn/courses/mysql-for-developers/introduction/course-introduction>
+1. [MySQL for developers](https://planetscale.com/learn/courses/mysql-for-developers/introduction/course-introduction)
 
-1. Practice writing SQL queries - <https://www.sqlzoo.net/wiki/SELECT_basics>
+1. [Practice writing SQL queries](https://www.sqlzoo.net/wiki/SELECT_basics)
 
-1. Everything you need to know about indexing - <https://use-the-index-luke.com/>
+1. [Everything you need to know about indexing](https://use-the-index-luke.com/)
 
-1. How to read explain output - <https://planetscale.com/blog/how-read-mysql-explains>
+1. [How to read explain output](https://planetscale.com/blog/how-read-mysql-explains)
 
 ### Databases
 
