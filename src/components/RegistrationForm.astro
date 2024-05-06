@@ -1,46 +1,56 @@
 ---
+
 ---
 
-<form id="registeration-form" class="sm:w-full">
-  <h3 class="font-semibold text-base mb-4">New Episodes Every Saturday.</h3>
+<>
+  <div class="font-semibold text-lg mb-4">
+    <p>Stay updated. Plus, you will get the following when you register:</p>
 
-  <!-- Input Elements -->
-  <div
-    class="flex flex-col space-y-4 sm:grid sm:grid-cols-2 sm:justify-center sm:items-center sm:space-y-0 sm:gap-12"
-  >
-    <input
-      class="focus:ring-2 focus:outline-none focus:ring-green-500 text-gray-600 font-semibold text-xl py-2 sm:py-4 pl-4 rounded-lg border-[2px] border-green-900/10"
-      required
-      name="first_name"
-      type="text"
-      placeholder="First Name"
-      autocomplete="given-name"
-    />
-    <input
-    class="focus:ring-2 focus:outline-none focus:ring-green-500 text-gray-500 font-semibold text-xl py-2 sm:py-4 pl-4 rounded-lg border-[2px] border-green-900/10"
-      required
-      name="email"
-      type="email"
-      placeholder="Your Email"
-      autocomplete="email"
-    />
+    <ol class="ml-2 my-1 font-medium text-gray-700 mt-2">
+      <li>1. Link to schedule a 30-minute 1-on-1 call with me</li>
+      <li>2. Frappe cheat sheets</li>
+      <li>3. Link to join BWH Discord Server</li>
+    </ol>
   </div>
+  <form id="registeration-form" class="sm:w-full">
+    <!-- Input Elements -->
+    <div
+      class="flex flex-col space-y-4 sm:grid sm:grid-cols-2 sm:justify-center sm:items-center sm:space-y-0 sm:gap-12"
+    >
+      <input
+        class="focus:ring-2 focus:outline-none focus:ring-green-500 text-gray-600 font-semibold text-xl py-2 sm:py-4 pl-4 rounded-lg border-[2px] border-green-900/10"
+        required
+        name="first_name"
+        type="text"
+        placeholder="First Name"
+        autocomplete="given-name"
+      />
+      <input
+        class="focus:ring-2 focus:outline-none focus:ring-green-500 text-gray-500 font-semibold text-xl py-2 sm:py-4 pl-4 rounded-lg border-[2px] border-green-900/10"
+        required
+        name="email"
+        type="email"
+        placeholder="Your Email"
+        autocomplete="email"
+      />
+    </div>
 
-  <button
-    type="submit"
-    class="group flex flex-row items-center pl-5 space-x-7 focus:outline-none focus:ring-4 focus:ring-green-400 mt-10 bg-green-700 text-white px-15 py-3 sm:px-[55px] sm:py-3 rounded-full font-bold text-xl sm:text-2xl transition-colors w-full sm:w-fit"
-    type="submit"
-  >
-    <span>Stay Notified</span>
-    <i
-      class="ph-bold ph-arrow-right group-hover:translate-x-3 transition-transform text-green-100"
-    ></i>
-  </button>
-</form>
+    <button
+      type="submit"
+      class="group flex flex-row items-center pl-5 space-x-7 focus:outline-none focus:ring-4 focus:ring-green-400 mt-8 bg-green-700 text-white px-15 py-3 sm:px-[55px] sm:py-3 rounded-full font-bold text-xl sm:text-2xl transition-colors w-full sm:w-fit"
+      type="submit"
+    >
+      <span>Let's go!</span>
+      <i
+        class="ph-bold ph-arrow-right group-hover:translate-x-3 transition-transform text-green-100"
+      ></i>
+    </button>
+  </form>
+</>
 
 <script>
   import { FRAPPE_CMS_URL } from "../data/constants";
-  
+
   function handleOnRegister(e) {
     // get form data
     const formData = new FormData(e.target);
