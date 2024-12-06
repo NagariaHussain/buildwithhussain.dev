@@ -68,12 +68,26 @@ const articleMeta: Meta = {
           >{articleDoc.published_on_formatted}</time
         >
 
-         ·
+        ·
 
         <span>{articleDoc.read_time} min read</span>
       </div>
 
       <hr class="border-green-800/20 border-1 my-10" />
+
+      {
+        
+        Boolean(articleDoc.custom_audio) && (
+          <div>
+            <h4>Listen to this article:</h4>
+            <audio controls class="mt-2">
+              <source src={articleDoc.custom_audio} type="audio/mpeg" />
+              Your browser does not support the audio tag.
+            </audio>
+            <hr class="border-green-800/20 border-1 my-10" />
+          </div>
+        )
+      }
 
       <StyledMarkdown set:html={articleContent} />
     </div>

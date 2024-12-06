@@ -1,5 +1,6 @@
 import { getFrappeDB, getFrappeCall } from "./frappe";
 import { parse, format } from "date-fns";
+import {FRAPPE_CMS_URL} from "../data/constants"
 
 interface BlogPost {
   name: string;
@@ -15,6 +16,7 @@ interface BlogPost {
   published_on: string;
   published_on_formatted?: string;
   category: string;
+  custom_audio: string;
 }
 
 interface Blogger {
@@ -62,6 +64,10 @@ export async function getBlogDocByRoute(route: string): Promise<BlogPost> {
     parse(blog.published_on, "yyyy-MM-dd", new Date()),
     "do MMM, yyyy"
   );
+  
+  if (blog.custom_audio) {
+    blog.custom_audio = `${FRAPPE_CMS_URL}${blog.custom_audio}`;
+  }
 
   return blog;
 }
