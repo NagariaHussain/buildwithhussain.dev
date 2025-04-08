@@ -1,4 +1,4 @@
-export const FRAPPE_CMS_URL = "https://platform.buildwithhussain.dev/";
+export const FRAPPE_CMS_URL = "https://buildwithhussain.com/";
 
 export const beginnerResources = [
   {
